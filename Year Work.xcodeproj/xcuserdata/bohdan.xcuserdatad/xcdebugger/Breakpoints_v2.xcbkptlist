@@ -94,8 +94,8 @@
             filePath = "Year Work/Speech/SpeechView.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "48"
-            endingLineNumber = "48"
+            startingLineNumber = "52"
+            endingLineNumber = "52"
             landmarkName = "body"
             landmarkType = "24">
          </BreakpointContent>
@@ -104,7 +104,7 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "9534280D-14F6-4008-8395-89A465C6D38E"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Year Work/Extrensions/AVPlayer+ClickSound.swift"
@@ -112,8 +112,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "10"
             endingLineNumber = "10"
-            landmarkName = "sharedClickPlayer(clickSoundNum:)"
-            landmarkType = "7">
+            landmarkName = "click1Player"
+            landmarkType = "24">
             <Locations>
                <Location
                   uuid = "9534280D-14F6-4008-8395-89A465C6D38E - e80ff3a535e4a7c3"

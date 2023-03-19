@@ -14,10 +14,13 @@ struct SpeechView: View {
             model.theme.mainColor
                 .ignoresSafeArea()
             VStack {
-                SpeechHeaderView(phrases: speechModel.speechPhrases, skipAction: speechModel.skipSpeechPhrase, completedAction: {
-                    model.markCompleted(task: .speech)
-                    presentationMode.wrappedValue.dismiss()
-                })
+                SpeechHeaderView(
+                    phrases: speechModel.speechPhrases,
+                    skipAction: speechModel.skipSpeechPhrase,
+                    completedAction: {
+                        model.markCompleted(task: .speech)
+                        presentationMode.wrappedValue.dismiss()
+                    })
                 SpeechTimerView(speechPhrases: speechModel.speechPhrases, theme: model.theme)
                 SpeechFooterView(secondsElapsed: speechModel.secondsElapsed, secondsRemaining: speechModel.secondsRemaining, theme: model.theme)
             }

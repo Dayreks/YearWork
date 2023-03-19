@@ -49,6 +49,7 @@ class SpeechModel: ObservableObject {
     }
     
     func skipSpeechPhrase() {
+        phraseChangedAction?()
         changeToPhrase(at: pharseIndex + 1)
     }
 

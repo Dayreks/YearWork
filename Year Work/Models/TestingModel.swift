@@ -8,8 +8,6 @@ struct TestingModel: Identifiable, Codable {
     var transcribedPhrases: [String] = []
     var lengthInMinutes: Int
     
-    
-    
     var completedTasks = Set<Tasks>()
     var theme: Theme
     
@@ -41,6 +39,6 @@ extension TestingModel {
 extension TestingModel {
     static let sampleData: [TestingModel] =
     [
-        TestingModel(title: "TestingModelSample", phrases: ["Cathy", "Daisy", "Simon", "Jonathan"], lengthInMinutes: 1, theme: .navy),
+        TestingModel(title: "TestingModelSample", phrases: ["а", "та", "ла", "жах", "страх", "вибух", "а", "та", "ла", "жах", "страх", "вибух"], lengthInMinutes: 1, theme: .navy),
     ]
 }
