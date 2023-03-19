@@ -1,0 +1,566 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 55;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		4721FF5E29BF15D500CA3771 /* MenuButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4721FF5D29BF15D500CA3771 /* MenuButtonView.swift */; };
+		4721FF6029C0C75E00CA3771 /* SpeechRecognizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4721FF5F29C0C75E00CA3771 /* SpeechRecognizer.swift */; };
+		4721FF6229C0C89D00CA3771 /* SpeechView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4721FF6129C0C89D00CA3771 /* SpeechView.swift */; };
+		4721FF6729C0C8C200CA3771 /* SpeechTimerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4721FF6429C0C8C200CA3771 /* SpeechTimerView.swift */; };
+		4721FF6829C0C8C200CA3771 /* SpeechHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4721FF6529C0C8C200CA3771 /* SpeechHeaderView.swift */; };
+		4721FF6929C0C8C200CA3771 /* SpeechFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4721FF6629C0C8C200CA3771 /* SpeechFooterView.swift */; };
+		4721FF6E29C0C90000CA3771 /* TestingModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4721FF6C29C0C90000CA3771 /* TestingModel.swift */; };
+		4721FF6F29C0C90000CA3771 /* SpeechModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4721FF6D29C0C90000CA3771 /* SpeechModel.swift */; };
+		4721FF7229C0C92000CA3771 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4721FF7029C0C92000CA3771 /* Theme.swift */; };
+		4721FF7629C0C94F00CA3771 /* CustomProgressViewStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4721FF7429C0C94F00CA3771 /* CustomProgressViewStyle.swift */; };
+		4721FF7729C0C94F00CA3771 /* SpeakerArc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4721FF7529C0C94F00CA3771 /* SpeakerArc.swift */; };
+		4721FF7929C0C98700CA3771 /* TrailingIconLabelStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4721FF7829C0C98700CA3771 /* TrailingIconLabelStyle.swift */; };
+		4785A58E296F22D400D13339 /* StartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4785A58D296F22D400D13339 /* StartView.swift */; };
+		47A0392B29C39C9F0096953F /* HandGuessingGameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47A0392A29C39C9F0096953F /* HandGuessingGameView.swift */; };
+		47A0392D29C39FD50096953F /* RightOrLeftGestureRecognizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47A0392C29C39FD50096953F /* RightOrLeftGestureRecognizer.swift */; };
+		47A0393129C3A9250096953F /* HandSideProccessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47A0393029C3A9250096953F /* HandSideProccessor.swift */; };
+		47A0393329C3A97B0096953F /* HandGestureProccessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47A0393229C3A97B0096953F /* HandGestureProccessor.swift */; };
+		47A0393529C3A9D40096953F /* RightOrLeftRecognizerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47A0393429C3A9D40096953F /* RightOrLeftRecognizerView.swift */; };
+		47A8E56B29BF0C2B00720E92 /* RythmsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47A8E56929BF0C2B00720E92 /* RythmsView.swift */; };
+		47A8E56C29BF0C2B00720E92 /* TileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47A8E56A29BF0C2B00720E92 /* TileView.swift */; };
+		47A8E56E29BF0D8300720E92 /* Tasks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47A8E56D29BF0D8300720E92 /* Tasks.swift */; };
+		47B303C4296617A5008CCFAF /* Year_WorkApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47B303C3296617A5008CCFAF /* Year_WorkApp.swift */; };
+		47B303C6296617A5008CCFAF /* VideoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47B303C5296617A5008CCFAF /* VideoView.swift */; };
+		47B303C8296617A6008CCFAF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 47B303C7296617A6008CCFAF /* Assets.xcassets */; };
+		47B303CB296617A6008CCFAF /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 47B303CA296617A6008CCFAF /* Preview Assets.xcassets */; };
+		47DD242C2986CBF3007A9705 /* GestureRecognizerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47DD242B2986CBF3007A9705 /* GestureRecognizerController.swift */; };
+		47DD242E2986D4DB007A9705 /* GestureRecognizerViewRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47DD242D2986D4DB007A9705 /* GestureRecognizerViewRepresentable.swift */; };
+		47F7299929C74D4500D46514 /* AVPlayer+ClickSound.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47F7299829C74D4500D46514 /* AVPlayer+ClickSound.swift */; };
+		47F729A129C7508500D46514 /* clickSound1.wav in Resources */ = {isa = PBXBuildFile; fileRef = 47F7299E29C7508500D46514 /* clickSound1.wav */; };
+		47F729A229C7508500D46514 /* clickSound2.wav in Resources */ = {isa = PBXBuildFile; fileRef = 47F7299F29C7508500D46514 /* clickSound2.wav */; };
+		47F729A629C7668900D46514 /* clickSound4.wav in Resources */ = {isa = PBXBuildFile; fileRef = 47F729A429C7668800D46514 /* clickSound4.wav */; };
+		47F729A729C7668900D46514 /* clickSound3.wav in Resources */ = {isa = PBXBuildFile; fileRef = 47F729A529C7668800D46514 /* clickSound3.wav */; };
+		47F729A929C76E6F00D46514 /* NumbersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47F729A829C76E6F00D46514 /* NumbersView.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		4721FF5D29BF15D500CA3771 /* MenuButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuButtonView.swift; sourceTree = "<group>"; };
+		4721FF5F29C0C75E00CA3771 /* SpeechRecognizer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpeechRecognizer.swift; sourceTree = "<group>"; };
+		4721FF6129C0C89D00CA3771 /* SpeechView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpeechView.swift; sourceTree = "<group>"; };
+		4721FF6429C0C8C200CA3771 /* SpeechTimerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpeechTimerView.swift; sourceTree = "<group>"; };
+		4721FF6529C0C8C200CA3771 /* SpeechHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpeechHeaderView.swift; sourceTree = "<group>"; };
+		4721FF6629C0C8C200CA3771 /* SpeechFooterView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpeechFooterView.swift; sourceTree = "<group>"; };
+		4721FF6C29C0C90000CA3771 /* TestingModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestingModel.swift; sourceTree = "<group>"; };
+		4721FF6D29C0C90000CA3771 /* SpeechModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpeechModel.swift; sourceTree = "<group>"; };
+		4721FF7029C0C92000CA3771 /* Theme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
+		4721FF7429C0C94F00CA3771 /* CustomProgressViewStyle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomProgressViewStyle.swift; sourceTree = "<group>"; };
+		4721FF7529C0C94F00CA3771 /* SpeakerArc.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpeakerArc.swift; sourceTree = "<group>"; };
+		4721FF7829C0C98700CA3771 /* TrailingIconLabelStyle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrailingIconLabelStyle.swift; sourceTree = "<group>"; };
+		4785A58D296F22D400D13339 /* StartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartView.swift; sourceTree = "<group>"; };
+		47A0392A29C39C9F0096953F /* HandGuessingGameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HandGuessingGameView.swift; sourceTree = "<group>"; };
+		47A0392C29C39FD50096953F /* RightOrLeftGestureRecognizer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RightOrLeftGestureRecognizer.swift; sourceTree = "<group>"; };
+		47A0393029C3A9250096953F /* HandSideProccessor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HandSideProccessor.swift; sourceTree = "<group>"; };
+		47A0393229C3A97B0096953F /* HandGestureProccessor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HandGestureProccessor.swift; sourceTree = "<group>"; };
+		47A0393429C3A9D40096953F /* RightOrLeftRecognizerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RightOrLeftRecognizerView.swift; sourceTree = "<group>"; };
+		47A8E56929BF0C2B00720E92 /* RythmsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RythmsView.swift; sourceTree = "<group>"; };
+		47A8E56A29BF0C2B00720E92 /* TileView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TileView.swift; sourceTree = "<group>"; };
+		47A8E56D29BF0D8300720E92 /* Tasks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tasks.swift; sourceTree = "<group>"; };
+		47B303C0296617A5008CCFAF /* Year Work.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Year Work.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		47B303C3296617A5008CCFAF /* Year_WorkApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Year_WorkApp.swift; sourceTree = "<group>"; };
+		47B303C5296617A5008CCFAF /* VideoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoView.swift; sourceTree = "<group>"; };
+		47B303C7296617A6008CCFAF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		47B303CA296617A6008CCFAF /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		47DD242B2986CBF3007A9705 /* GestureRecognizerController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GestureRecognizerController.swift; sourceTree = "<group>"; };
+		47DD242D2986D4DB007A9705 /* GestureRecognizerViewRepresentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GestureRecognizerViewRepresentable.swift; sourceTree = "<group>"; };
+		47F7299829C74D4500D46514 /* AVPlayer+ClickSound.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "AVPlayer+ClickSound.swift"; sourceTree = "<group>"; };
+		47F7299E29C7508500D46514 /* clickSound1.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = clickSound1.wav; sourceTree = "<group>"; };
+		47F7299F29C7508500D46514 /* clickSound2.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = clickSound2.wav; sourceTree = "<group>"; };
+		47F729A329C761A200D46514 /* Year-Work-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "Year-Work-Info.plist"; sourceTree = SOURCE_ROOT; };
+		47F729A429C7668800D46514 /* clickSound4.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = clickSound4.wav; path = ../../../../../Downloads/clickSound4.wav; sourceTree = "<group>"; };
+		47F729A529C7668800D46514 /* clickSound3.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = clickSound3.wav; path = ../../../../../Downloads/clickSound3.wav; sourceTree = "<group>"; };
+		47F729A829C76E6F00D46514 /* NumbersView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumbersView.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		47B303BD296617A5008CCFAF /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		4785A58A296F229900D13339 /* UIMenu */ = {
+			isa = PBXGroup;
+			children = (
+				4785A58D296F22D400D13339 /* StartView.swift */,
+				4721FF5D29BF15D500CA3771 /* MenuButtonView.swift */,
+			);
+			path = UIMenu;
+			sourceTree = "<group>";
+		};
+		47A0392E29C3A8980096953F /* SwiftUIHelpers */ = {
+			isa = PBXGroup;
+			children = (
+				4721FF7429C0C94F00CA3771 /* CustomProgressViewStyle.swift */,
+				47A8E56A29BF0C2B00720E92 /* TileView.swift */,
+			);
+			path = SwiftUIHelpers;
+			sourceTree = "<group>";
+		};
+		47A0392F29C3A8B80096953F /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				4721FF6C29C0C90000CA3771 /* TestingModel.swift */,
+				47A8E56D29BF0D8300720E92 /* Tasks.swift */,
+				4721FF7029C0C92000CA3771 /* Theme.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		47A0393A29C650450096953F /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				4721FF6D29C0C90000CA3771 /* SpeechModel.swift */,
+				4721FF5F29C0C75E00CA3771 /* SpeechRecognizer.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		47B303B7296617A5008CCFAF = {
+			isa = PBXGroup;
+			children = (
+				47B303C2296617A5008CCFAF /* Year Work */,
+				47B303C1296617A5008CCFAF /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		47B303C1296617A5008CCFAF /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				47B303C0296617A5008CCFAF /* Year Work.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		47B303C2296617A5008CCFAF /* Year Work */ = {
+			isa = PBXGroup;
+			children = (
+				47F729A329C761A200D46514 /* Year-Work-Info.plist */,
+				47A0392F29C3A8B80096953F /* Models */,
+				47A0392E29C3A8980096953F /* SwiftUIHelpers */,
+				47DD24272986BFD0007A9705 /* Orientation */,
+				47DD24262986BFCB007A9705 /* Numbers */,
+				47DD24252986BFC6007A9705 /* Speech */,
+				47DD24242986BFC1007A9705 /* Vision */,
+				47DD24232986BFB6007A9705 /* Rythms */,
+				4785A58A296F229900D13339 /* UIMenu */,
+				47DD24282986BFF6007A9705 /* Extrensions */,
+				47F7299A29C74D7500D46514 /* AudioFiles */,
+				47B303C3296617A5008CCFAF /* Year_WorkApp.swift */,
+				47B303C7296617A6008CCFAF /* Assets.xcassets */,
+				47B303C9296617A6008CCFAF /* Preview Content */,
+			);
+			path = "Year Work";
+			sourceTree = "<group>";
+		};
+		47B303C9296617A6008CCFAF /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				47B303CA296617A6008CCFAF /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		47DD24232986BFB6007A9705 /* Rythms */ = {
+			isa = PBXGroup;
+			children = (
+				47A8E56929BF0C2B00720E92 /* RythmsView.swift */,
+			);
+			path = Rythms;
+			sourceTree = "<group>";
+		};
+		47DD24242986BFC1007A9705 /* Vision */ = {
+			isa = PBXGroup;
+			children = (
+				47B303C5296617A5008CCFAF /* VideoView.swift */,
+				47DD242B2986CBF3007A9705 /* GestureRecognizerController.swift */,
+				47DD242D2986D4DB007A9705 /* GestureRecognizerViewRepresentable.swift */,
+				47A0393229C3A97B0096953F /* HandGestureProccessor.swift */,
+			);
+			path = Vision;
+			sourceTree = "<group>";
+		};
+		47DD24252986BFC6007A9705 /* Speech */ = {
+			isa = PBXGroup;
+			children = (
+				47A0393A29C650450096953F /* Models */,
+				4721FF6129C0C89D00CA3771 /* SpeechView.swift */,
+				4721FF6529C0C8C200CA3771 /* SpeechHeaderView.swift */,
+				4721FF6629C0C8C200CA3771 /* SpeechFooterView.swift */,
+				4721FF6429C0C8C200CA3771 /* SpeechTimerView.swift */,
+				4721FF7529C0C94F00CA3771 /* SpeakerArc.swift */,
+				4721FF7829C0C98700CA3771 /* TrailingIconLabelStyle.swift */,
+			);
+			path = Speech;
+			sourceTree = "<group>";
+		};
+		47DD24262986BFCB007A9705 /* Numbers */ = {
+			isa = PBXGroup;
+			children = (
+				47F729A829C76E6F00D46514 /* NumbersView.swift */,
+			);
+			path = Numbers;
+			sourceTree = "<group>";
+		};
+		47DD24272986BFD0007A9705 /* Orientation */ = {
+			isa = PBXGroup;
+			children = (
+				47A0392A29C39C9F0096953F /* HandGuessingGameView.swift */,
+				47A0392C29C39FD50096953F /* RightOrLeftGestureRecognizer.swift */,
+				47A0393029C3A9250096953F /* HandSideProccessor.swift */,
+				47A0393429C3A9D40096953F /* RightOrLeftRecognizerView.swift */,
+			);
+			path = Orientation;
+			sourceTree = "<group>";
+		};
+		47DD24282986BFF6007A9705 /* Extrensions */ = {
+			isa = PBXGroup;
+			children = (
+				47F7299829C74D4500D46514 /* AVPlayer+ClickSound.swift */,
+			);
+			path = Extrensions;
+			sourceTree = "<group>";
+		};
+		47F7299A29C74D7500D46514 /* AudioFiles */ = {
+			isa = PBXGroup;
+			children = (
+				47F7299E29C7508500D46514 /* clickSound1.wav */,
+				47F7299F29C7508500D46514 /* clickSound2.wav */,
+				47F729A529C7668800D46514 /* clickSound3.wav */,
+				47F729A429C7668800D46514 /* clickSound4.wav */,
+			);
+			path = AudioFiles;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		47B303BF296617A5008CCFAF /* Year Work */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 47B303CE296617A6008CCFAF /* Build configuration list for PBXNativeTarget "Year Work" */;
+			buildPhases = (
+				47B303BC296617A5008CCFAF /* Sources */,
+				47B303BD296617A5008CCFAF /* Frameworks */,
+				47B303BE296617A5008CCFAF /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Year Work";
+			productName = "Year Work";
+			productReference = 47B303C0296617A5008CCFAF /* Year Work.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		47B303B8296617A5008CCFAF /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1420;
+				LastUpgradeCheck = 1420;
+				TargetAttributes = {
+					47B303BF296617A5008CCFAF = {
+						CreatedOnToolsVersion = 14.2;
+					};
+				};
+			};
+			buildConfigurationList = 47B303BB296617A5008CCFAF /* Build configuration list for PBXProject "Year Work" */;
+			compatibilityVersion = "Xcode 13.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 47B303B7296617A5008CCFAF;
+			productRefGroup = 47B303C1296617A5008CCFAF /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				47B303BF296617A5008CCFAF /* Year Work */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		47B303BE296617A5008CCFAF /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				47F729A229C7508500D46514 /* clickSound2.wav in Resources */,
+				47F729A129C7508500D46514 /* clickSound1.wav in Resources */,
+				47B303CB296617A6008CCFAF /* Preview Assets.xcassets in Resources */,
+				47F729A729C7668900D46514 /* clickSound3.wav in Resources */,
+				47B303C8296617A6008CCFAF /* Assets.xcassets in Resources */,
+				47F729A629C7668900D46514 /* clickSound4.wav in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		47B303BC296617A5008CCFAF /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4721FF5E29BF15D500CA3771 /* MenuButtonView.swift in Sources */,
+				4721FF6829C0C8C200CA3771 /* SpeechHeaderView.swift in Sources */,
+				47A0392B29C39C9F0096953F /* HandGuessingGameView.swift in Sources */,
+				47F729A929C76E6F00D46514 /* NumbersView.swift in Sources */,
+				47A0393129C3A9250096953F /* HandSideProccessor.swift in Sources */,
+				4721FF6729C0C8C200CA3771 /* SpeechTimerView.swift in Sources */,
+				4721FF7729C0C94F00CA3771 /* SpeakerArc.swift in Sources */,
+				4721FF6E29C0C90000CA3771 /* TestingModel.swift in Sources */,
+				47F7299929C74D4500D46514 /* AVPlayer+ClickSound.swift in Sources */,
+				47A8E56E29BF0D8300720E92 /* Tasks.swift in Sources */,
+				4785A58E296F22D400D13339 /* StartView.swift in Sources */,
+				4721FF7629C0C94F00CA3771 /* CustomProgressViewStyle.swift in Sources */,
+				4721FF6029C0C75E00CA3771 /* SpeechRecognizer.swift in Sources */,
+				47DD242E2986D4DB007A9705 /* GestureRecognizerViewRepresentable.swift in Sources */,
+				47A8E56B29BF0C2B00720E92 /* RythmsView.swift in Sources */,
+				47B303C6296617A5008CCFAF /* VideoView.swift in Sources */,
+				47DD242C2986CBF3007A9705 /* GestureRecognizerController.swift in Sources */,
+				47A8E56C29BF0C2B00720E92 /* TileView.swift in Sources */,
+				47B303C4296617A5008CCFAF /* Year_WorkApp.swift in Sources */,
+				4721FF7929C0C98700CA3771 /* TrailingIconLabelStyle.swift in Sources */,
+				47A0393329C3A97B0096953F /* HandGestureProccessor.swift in Sources */,
+				4721FF6229C0C89D00CA3771 /* SpeechView.swift in Sources */,
+				4721FF7229C0C92000CA3771 /* Theme.swift in Sources */,
+				4721FF6929C0C8C200CA3771 /* SpeechFooterView.swift in Sources */,
+				4721FF6F29C0C90000CA3771 /* SpeechModel.swift in Sources */,
+				47A0392D29C39FD50096953F /* RightOrLeftGestureRecognizer.swift in Sources */,
+				47A0393529C3A9D40096953F /* RightOrLeftRecognizerView.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		47B303CC296617A6008CCFAF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		47B303CD296617A6008CCFAF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		47B303CF296617A6008CCFAF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"Year Work/Preview Content\"";
+				DEVELOPMENT_TEAM = VNU8KKW4GG;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Year-Work-Info.plist";
+				INFOPLIST_KEY_LSApplicationCategoryType = "";
+				INFOPLIST_KEY_NSCameraUsageDescription = "App uses camera to observe your actions";
+				INFOPLIST_KEY_NSMicrophoneUsageDescription = "Permission to use microphone";
+				INFOPLIST_KEY_NSSpeechRecognitionUsageDescription = "Permission to use microphone";
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "ua.edu.ukma.Arkhypchuk.Year-Work";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		47B303D0296617A6008CCFAF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"Year Work/Preview Content\"";
+				DEVELOPMENT_TEAM = VNU8KKW4GG;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Year-Work-Info.plist";
+				INFOPLIST_KEY_LSApplicationCategoryType = "";
+				INFOPLIST_KEY_NSCameraUsageDescription = "App uses camera to observe your actions";
+				INFOPLIST_KEY_NSMicrophoneUsageDescription = "Permission to use microphone";
+				INFOPLIST_KEY_NSSpeechRecognitionUsageDescription = "Permission to use microphone";
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "ua.edu.ukma.Arkhypchuk.Year-Work";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		47B303BB296617A5008CCFAF /* Build configuration list for PBXProject "Year Work" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				47B303CC296617A6008CCFAF /* Debug */,
+				47B303CD296617A6008CCFAF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		47B303CE296617A6008CCFAF /* Build configuration list for PBXNativeTarget "Year Work" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				47B303CF296617A6008CCFAF /* Debug */,
+				47B303D0296617A6008CCFAF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 47B303B8296617A5008CCFAF /* Project object */;
+}
