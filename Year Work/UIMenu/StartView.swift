@@ -34,7 +34,7 @@ struct StartView: View {
             ZStack {
                 model.theme.accentColor.ignoresSafeArea()
                 VStack(alignment: .center) {
-                    Text("Completed")
+                    Text("Прогрес")
                         .font(.system(size: 24))
                         .foregroundColor(model.theme.mainColor)
                         .padding([.top], 16)
@@ -48,27 +48,42 @@ struct StartView: View {
                             
                             switch button {
                             case .vision:
-                                NavigationLink (destination: VideoView(model: $model), label: {
+                                NavigationLink (
+                                    destination: ExplanationView(explanationText: "Повтори своїми руками жести відображені на екрані", theme: model.theme) { VideoView(model: $model)
+                                    },
+                                    label: {
                                     MenuButtonView(color: model.theme.mainColor, image: button.rawValue)
                                 })
                                 
                             case .rythms:
-                                NavigationLink (destination: RythmsView(model: $model), label: {
+                                NavigationLink (
+                                    destination: ExplanationView(explanationText: "Запамʼятовуй звуки та послідовність ритмів і відтворюй їх у такому ж порядку", theme: model.theme) { RythmsView(model: $model)
+                                    },
+                                    label: {
                                     MenuButtonView(color: model.theme.mainColor, image: button.rawValue)
                                 })
                                 
                             case .speech:
-                                NavigationLink (destination: SpeechView(model: $model), label: {
+                                NavigationLink (
+                                    destination: ExplanationView(explanationText: "Читай в слух те що бачиш посередині екрану", theme: model.theme) { SpeechView(model: $model)
+                                    },
+                                    label: {
                                     MenuButtonView(color: model.theme.mainColor, image: button.rawValue)
                                 })
                                 
                             case .numbers:
-                                NavigationLink (destination: NumbersView(model: $model), label: {
+                                NavigationLink (
+                                    destination: ExplanationView(explanationText: "Запамʼятовуй послідовність цифр та відтворюй її по памʼяті", theme: model.theme) { NumbersView(model: $model)
+                                    },
+                                    label: {
                                     MenuButtonView(color: model.theme.mainColor, image: button.rawValue)
                                 })
                                 
                             case .orientation:
-                                NavigationLink (destination: HandGuessingGameView(model: $model), label: {
+                                NavigationLink (
+                                    destination: ExplanationView(explanationText: "Піднімай руку з тої сторони де підсвічується екран", theme: model.theme) { HandGuessingGameView(model: $model)
+                                    },
+                                    label: {
                                     MenuButtonView(color: model.theme.mainColor, image: button.rawValue)
                                 })
                                 
@@ -82,12 +97,11 @@ struct StartView: View {
                             Spacer()
                             
                             HStack(alignment: .center) {
-                                Text ("Results")
+                                Text ("Результати")
                                     .foregroundColor(.white)
-                                    .font(.system(size: 24))
+                                    .font(.system(size: 20))
                             }
-                            
-                            .frame(minWidth: 100, maxWidth: .infinity, minHeight: 50, maxHeight: 74)
+                            .frame(minWidth: 100, maxWidth: 200, minHeight: 25, maxHeight: 60)
                             .background(model.theme.mainColor)
                             .clipShape(Capsule())
                             .onTapGesture {

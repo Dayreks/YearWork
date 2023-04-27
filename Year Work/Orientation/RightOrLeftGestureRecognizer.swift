@@ -11,32 +11,43 @@ import Vision
 
 class RightOrLeftGestureRecognizerController: UIViewController {
     
+    enum ScreenSide {
+        case left
+        case right
+    }
+    
     private var captureSession: AVCaptureSession?
     private var videoPreviewLayer: AVCaptureVideoPreviewLayer?
     
     private let handPoseRequest = VNDetectHumanHandPoseRequest()
     private let handGestureProcessor = HandSideProcessor()
     
-    private weak var emojiView: UILabel?
     private weak var scoreLabel: UILabel?
     private weak var sideLabel: UILabel?
     
+    private weak var instructionView: UIView?
+    
+    private var isGameEnded = false
+    private var isInstructionViewShown = false
     private var currentRound = 1
-    private var maxRounds = 5
-    private var roundDuration: TimeInterval = 10
+    private var maxRounds = 10
+    private var roundDuration: TimeInterval = 3
     private var currentScore = 0
     private var roundTimer: Timer?
+    
+    private var currentSide: ScreenSide = .left
     
     override func viewDidLoad() {
         super.viewDidLoad()
         prepareCaptureSession()
         prepareCaptureUI()
-        prepareEmojiView()
         prepareScoreLabel()
         prepareSideLabel()
+        prepareInstructionView()
         
-        // The default value for this property is 2.
         handPoseRequest.maximumHandCount = 1
+        
+        startGame()
     }
     
     private func prepareCaptureSession() {
@@ -67,22 +78,12 @@ class RightOrLeftGestureRecognizerController: UIViewController {
         self.videoPreviewLayer = videoPreviewLayer
     }
     
-    private func prepareEmojiView() {
-        let emojiView = UILabel()
-        emojiView.frame = self.view.bounds
-        emojiView.textAlignment = .center
-        emojiView.font = UIFont.systemFont(ofSize: 300)
-        view.addSubview(emojiView)
-        
-        self.emojiView = emojiView
-    }
-    
     private func prepareScoreLabel() {
         let scoreLabel = UILabel()
         scoreLabel.frame = CGRect(x: 0, y: 50, width: view.bounds.width, height: 40)
         scoreLabel.textAlignment = .center
         scoreLabel.font = UIFont.systemFont(ofSize: 24)
-        scoreLabel.text = "Score: 0"
+        scoreLabel.text = "Рахунок: 0"
         view.addSubview(scoreLabel)
         
         self.scoreLabel = scoreLabel
@@ -98,15 +99,46 @@ class RightOrLeftGestureRecognizerController: UIViewController {
         self.sideLabel = sideLabel
     }
     
+    private func prepareInstructionView() {
+        // Create a view for the left side with a translucent black background
+        let leftInstructionView = UIView(frame: CGRect(x: 0, y: 0, width: view.bounds.width / 2, height: view.bounds.height))
+        leftInstructionView.backgroundColor = UIColor.white.withAlphaComponent(0.6)
+        view.addSubview(leftInstructionView)
+        
+        // Create a view for the right side with a translucent black background
+        let rightInstructionView = UIView(frame: CGRect(x: view.bounds.width / 2, y: 0, width: view.bounds.width / 2, height: view.bounds.height))
+        rightInstructionView.backgroundColor = UIColor.white.withAlphaComponent(0.6)
+        view.addSubview(rightInstructionView)
+        
+        self.instructionView = leftInstructionView
+        
+        // Hide the instruction views initially
+        leftInstructionView.alpha = 0
+        rightInstructionView.alpha = 0
+    }
+    
+    private func startGame() {
+        startRound()
+    }
+    
     private func startRound() {
         if currentRound <= maxRounds {
             setRandomSide()
-            startRoundTimer()
+            
+            isInstructionViewShown = true
+            DispatchQueue.main.asyncAfter(deadline: .now() + 1.2) {
+                self.isInstructionViewShown = false
+                self.showInstructionView {
+                    self.hideInstructionView {
+                        self.startRoundTimer()
+                    }
+                }
+            }
         } else {
             endGame()
         }
     }
-
+    
     private func startRoundTimer() {
         roundTimer?.invalidate()
         roundTimer = Timer.scheduledTimer(withTimeInterval: roundDuration, repeats: false) { _ in
@@ -114,19 +146,64 @@ class RightOrLeftGestureRecognizerController: UIViewController {
             self.startRound()
         }
     }
-
+    
     private func updateScore(correct: Bool) {
         if correct {
             currentScore += 1
+            currentRound += 1
+            startRound()
         }
     }
-
+    
     private func endGame() {
-        // Handle end of the game (e.g., show final score or reset game)
+        isGameEnded = true
+        
+        let alertController = UIAlertController(
+            title: "Вітання!",
+            message: "Ви успішно завершили цю частину",
+            preferredStyle: .alert
+        )
+        
+        let okAction = UIAlertAction(title: "OK", style: .default) { _ in
+            self.navigationController?.popViewController(animated: true)
+        }
+        alertController.addAction(okAction)
+        
+        present(alertController, animated: true, completion: nil)
     }
-
+    
+    
     private func setRandomSide() {
-        // Set the side of the screen (left or right) that the user should show their hand on
+        currentSide = Int.random(in: 0...2) == 0 ? .left : .right
+        
+        switch currentSide {
+        case .left:
+            instructionView?.frame.origin.x = 0
+        case .right:
+            instructionView?.frame.origin.x = view.bounds.width / 2
+        }
+    }
+    
+    private func showInstructionView(completion: @escaping () -> Void) {
+        instructionView?.alpha = 0
+        UIView.animate(withDuration: 0.6, animations: {
+            self.instructionView?.alpha = 1
+            self.instructionView?.superview?.subviews.forEach { view in
+                if view != self.instructionView && view != self.scoreLabel {
+                    view.alpha = 0
+                }
+            }
+        }) { _ in
+            completion()
+        }
+    }
+    
+    private func hideInstructionView(completion: @escaping () -> Void) {
+        UIView.animate(withDuration: 0.6, animations: {
+            self.instructionView?.alpha = 0
+        }) { _ in
+            completion()
+        }
     }
 }
 
@@ -138,6 +215,8 @@ extension RightOrLeftGestureRecognizerController: AVCaptureVideoDataOutputSample
         from connection: AVCaptureConnection
     ) {
         
+        guard !isGameEnded, !isInstructionViewShown else { return }
+        
         let handler = VNImageRequestHandler(cmSampleBuffer: sampleBuffer, orientation: .up, options: [:])
         do {
             // Perform VNDetectHumanHandPoseRequest
@@ -145,7 +224,6 @@ extension RightOrLeftGestureRecognizerController: AVCaptureVideoDataOutputSample
             // Continue only when a hand was detected in the frame.
             // Since we set the maximumHandCount property of the request to 1, there will be at most one observation.
             guard let observation = handPoseRequest.results?.first else {
-                emojiView?.text = ""
                 return
             }
             // Get points for thumb and index finger.
@@ -157,7 +235,6 @@ extension RightOrLeftGestureRecognizerController: AVCaptureVideoDataOutputSample
             else { return }
             // Ignore low confidence points.
             guard thumbTipPoint.confidence > 0.3, littleTipPoint.confidence > 0.3 else {
-                emojiView?.text = ""
                 return
             }
             // Convert points from Vision coordinates to AVFoundation coordinates.
@@ -184,7 +261,6 @@ extension RightOrLeftGestureRecognizerController: AVCaptureVideoDataOutputSample
         guard let thumbTipConvertedPoint = videoPreviewLayer?.layerPointConverted(fromCaptureDevicePoint: thumbTipCGPoint),
               let littleTipConvertedPoint = videoPreviewLayer?.layerPointConverted(fromCaptureDevicePoint: littleTipCGPoint)
         else {
-            emojiView?.text = "😱"
             return
         }
         
@@ -195,16 +271,11 @@ extension RightOrLeftGestureRecognizerController: AVCaptureVideoDataOutputSample
         
         switch state {
         case .leftHand:
-            emojiView?.text = "✋"
+            updateScore(correct: currentSide == .left)
         case .rightHand:
-            emojiView?.text = "🤚"
+            updateScore(correct: currentSide == .right)
         }
         
-        ///Debug
-//
-//        print("1. Vision Coordinates: \(thumbTipPoint)")
-//        print("2. AVFoundation coordinates: \(thumbTipCGPoint)")
-//        print("3. UIKit coordinates: \(thumbTipConvertedPoint)")
-//        print(state)
+        scoreLabel?.text = "Рахунок: \(currentScore)"
     }
 }

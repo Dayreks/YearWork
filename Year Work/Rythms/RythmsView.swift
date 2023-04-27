@@ -88,14 +88,14 @@ struct RythmsView: View {
             Button {
                 startRound()
             } label: {
-                Text("Start")
+                Text("Старт")
                     .font(.system(size: 24))
                     .foregroundColor(.black)
             }
             .offset(y: playing ? 200 : -80.0)
             .disabled(playing)
         }
-        .navigationTitle("Rythms")
+        .navigationTitle("Ритми")
         .navigationBarBackButtonHidden(true)
         .onDisappear {
             playing = false

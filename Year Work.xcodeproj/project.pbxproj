@@ -19,6 +19,7 @@
 		4721FF7629C0C94F00CA3771 /* CustomProgressViewStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4721FF7429C0C94F00CA3771 /* CustomProgressViewStyle.swift */; };
 		4721FF7729C0C94F00CA3771 /* SpeakerArc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4721FF7529C0C94F00CA3771 /* SpeakerArc.swift */; };
 		4721FF7929C0C98700CA3771 /* TrailingIconLabelStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4721FF7829C0C98700CA3771 /* TrailingIconLabelStyle.swift */; };
+		4726942D29FB0BDC00137521 /* ExplanationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4726942C29FB0BDC00137521 /* ExplanationView.swift */; };
 		4785A58E296F22D400D13339 /* StartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4785A58D296F22D400D13339 /* StartView.swift */; };
 		47A0392B29C39C9F0096953F /* HandGuessingGameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47A0392A29C39C9F0096953F /* HandGuessingGameView.swift */; };
 		47A0392D29C39FD50096953F /* RightOrLeftGestureRecognizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47A0392C29C39FD50096953F /* RightOrLeftGestureRecognizer.swift */; };
@@ -37,9 +38,9 @@
 		47F7299929C74D4500D46514 /* AVPlayer+ClickSound.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47F7299829C74D4500D46514 /* AVPlayer+ClickSound.swift */; };
 		47F729A129C7508500D46514 /* clickSound1.wav in Resources */ = {isa = PBXBuildFile; fileRef = 47F7299E29C7508500D46514 /* clickSound1.wav */; };
 		47F729A229C7508500D46514 /* clickSound2.wav in Resources */ = {isa = PBXBuildFile; fileRef = 47F7299F29C7508500D46514 /* clickSound2.wav */; };
-		47F729A629C7668900D46514 /* clickSound4.wav in Resources */ = {isa = PBXBuildFile; fileRef = 47F729A429C7668800D46514 /* clickSound4.wav */; };
-		47F729A729C7668900D46514 /* clickSound3.wav in Resources */ = {isa = PBXBuildFile; fileRef = 47F729A529C7668800D46514 /* clickSound3.wav */; };
 		47F729A929C76E6F00D46514 /* NumbersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47F729A829C76E6F00D46514 /* NumbersView.swift */; };
+		47F80E0E29D1B29B0015F13A /* clickSound3.wav in Resources */ = {isa = PBXBuildFile; fileRef = 47F80E0C29D1B29B0015F13A /* clickSound3.wav */; };
+		47F80E0F29D1B29B0015F13A /* clickSound4.wav in Resources */ = {isa = PBXBuildFile; fileRef = 47F80E0D29D1B29B0015F13A /* clickSound4.wav */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -55,6 +56,7 @@
 		4721FF7429C0C94F00CA3771 /* CustomProgressViewStyle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomProgressViewStyle.swift; sourceTree = "<group>"; };
 		4721FF7529C0C94F00CA3771 /* SpeakerArc.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpeakerArc.swift; sourceTree = "<group>"; };
 		4721FF7829C0C98700CA3771 /* TrailingIconLabelStyle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrailingIconLabelStyle.swift; sourceTree = "<group>"; };
+		4726942C29FB0BDC00137521 /* ExplanationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExplanationView.swift; sourceTree = "<group>"; };
 		4785A58D296F22D400D13339 /* StartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartView.swift; sourceTree = "<group>"; };
 		47A0392A29C39C9F0096953F /* HandGuessingGameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HandGuessingGameView.swift; sourceTree = "<group>"; };
 		47A0392C29C39FD50096953F /* RightOrLeftGestureRecognizer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RightOrLeftGestureRecognizer.swift; sourceTree = "<group>"; };
@@ -75,9 +77,9 @@
 		47F7299E29C7508500D46514 /* clickSound1.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = clickSound1.wav; sourceTree = "<group>"; };
 		47F7299F29C7508500D46514 /* clickSound2.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = clickSound2.wav; sourceTree = "<group>"; };
 		47F729A329C761A200D46514 /* Year-Work-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "Year-Work-Info.plist"; sourceTree = SOURCE_ROOT; };
-		47F729A429C7668800D46514 /* clickSound4.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = clickSound4.wav; path = ../../../../../Downloads/clickSound4.wav; sourceTree = "<group>"; };
-		47F729A529C7668800D46514 /* clickSound3.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = clickSound3.wav; path = ../../../../../Downloads/clickSound3.wav; sourceTree = "<group>"; };
 		47F729A829C76E6F00D46514 /* NumbersView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumbersView.swift; sourceTree = "<group>"; };
+		47F80E0C29D1B29B0015F13A /* clickSound3.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = clickSound3.wav; sourceTree = "<group>"; };
+		47F80E0D29D1B29B0015F13A /* clickSound4.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = clickSound4.wav; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,6 +107,7 @@
 			children = (
 				4721FF7429C0C94F00CA3771 /* CustomProgressViewStyle.swift */,
 				47A8E56A29BF0C2B00720E92 /* TileView.swift */,
+				4726942C29FB0BDC00137521 /* ExplanationView.swift */,
 			);
 			path = SwiftUIHelpers;
 			sourceTree = "<group>";
@@ -238,8 +241,8 @@
 			children = (
 				47F7299E29C7508500D46514 /* clickSound1.wav */,
 				47F7299F29C7508500D46514 /* clickSound2.wav */,
-				47F729A529C7668800D46514 /* clickSound3.wav */,
-				47F729A429C7668800D46514 /* clickSound4.wav */,
+				47F80E0C29D1B29B0015F13A /* clickSound3.wav */,
+				47F80E0D29D1B29B0015F13A /* clickSound4.wav */,
 			);
 			path = AudioFiles;
 			sourceTree = "<group>";
@@ -302,12 +305,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				47F80E0E29D1B29B0015F13A /* clickSound3.wav in Resources */,
 				47F729A229C7508500D46514 /* clickSound2.wav in Resources */,
+				47F80E0F29D1B29B0015F13A /* clickSound4.wav in Resources */,
 				47F729A129C7508500D46514 /* clickSound1.wav in Resources */,
 				47B303CB296617A6008CCFAF /* Preview Assets.xcassets in Resources */,
-				47F729A729C7668900D46514 /* clickSound3.wav in Resources */,
 				47B303C8296617A6008CCFAF /* Assets.xcassets in Resources */,
-				47F729A629C7668900D46514 /* clickSound4.wav in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -344,6 +347,7 @@
 				4721FF6929C0C8C200CA3771 /* SpeechFooterView.swift in Sources */,
 				4721FF6F29C0C90000CA3771 /* SpeechModel.swift in Sources */,
 				47A0392D29C39FD50096953F /* RightOrLeftGestureRecognizer.swift in Sources */,
+				4726942D29FB0BDC00137521 /* ExplanationView.swift in Sources */,
 				47A0393529C3A9D40096953F /* RightOrLeftRecognizerView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
