@@ -47,7 +47,7 @@ class RightOrLeftGestureRecognizerController: UIViewController {
         
         handPoseRequest.maximumHandCount = 1
         
-        startGame()
+        startRound()
     }
     
     private func prepareCaptureSession() {
@@ -91,13 +91,15 @@ class RightOrLeftGestureRecognizerController: UIViewController {
     
     private func prepareSideLabel() {
         let sideLabel = UILabel()
-        sideLabel.frame = CGRect(x: 0, y: 100, width: view.bounds.width, height: 40)
+        sideLabel.frame = CGRect(x: 0, y: (view.bounds.height / 2) - 20, width: view.bounds.width, height: 40)
         sideLabel.textAlignment = .center
         sideLabel.font = UIFont.systemFont(ofSize: 24)
+        sideLabel.alpha = 0
         view.addSubview(sideLabel)
         
         self.sideLabel = sideLabel
     }
+
     
     private func prepareInstructionView() {
         // Create a view for the left side with a translucent black background
@@ -117,20 +119,16 @@ class RightOrLeftGestureRecognizerController: UIViewController {
         rightInstructionView.alpha = 0
     }
     
-    private func startGame() {
-        startRound()
-    }
-    
     private func startRound() {
         if currentRound <= maxRounds {
             setRandomSide()
             
             isInstructionViewShown = true
-            DispatchQueue.main.asyncAfter(deadline: .now() + 1.2) {
-                self.isInstructionViewShown = false
+            DispatchQueue.main.asyncAfter(deadline: .now() + 1.6) {
                 self.showInstructionView {
                     self.hideInstructionView {
                         self.startRoundTimer()
+                        self.isInstructionViewShown = false
                     }
                 }
             }
@@ -184,27 +182,45 @@ class RightOrLeftGestureRecognizerController: UIViewController {
         }
     }
     
+    private func applyTransition(to view: UIView, fadeIn: Bool, duration: TimeInterval) {
+        let transition = CATransition()
+        transition.type = .fade
+        transition.duration = duration
+        transition.timingFunction = CAMediaTimingFunction(name: .easeInEaseOut)
+        
+        view.layer.add(transition, forKey: fadeIn ? "fadeIn" : "fadeOut")
+        view.alpha = fadeIn ? 1 : 0
+    }
+
+    
     private func showInstructionView(completion: @escaping () -> Void) {
         instructionView?.alpha = 0
-        UIView.animate(withDuration: 0.6, animations: {
-            self.instructionView?.alpha = 1
-            self.instructionView?.superview?.subviews.forEach { view in
-                if view != self.instructionView && view != self.scoreLabel {
-                    view.alpha = 0
-                }
+        sideLabel?.alpha = 0
+        sideLabel?.text = currentSide == .left ? "Ліва" : "Права"
+        
+        applyTransition(to: instructionView!, fadeIn: true, duration: 0.8)
+        applyTransition(to: sideLabel!, fadeIn: true, duration: 0.8)
+        
+        instructionView?.superview?.subviews.forEach { view in
+            if view != self.instructionView && view != self.scoreLabel && view != self.sideLabel {
+                applyTransition(to: view, fadeIn: false, duration: 0.8)
             }
-        }) { _ in
+        }
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.8) {
             completion()
         }
     }
-    
+
     private func hideInstructionView(completion: @escaping () -> Void) {
-        UIView.animate(withDuration: 0.6, animations: {
-            self.instructionView?.alpha = 0
-        }) { _ in
+        applyTransition(to: instructionView!, fadeIn: false, duration: 0.8)
+        applyTransition(to: sideLabel!, fadeIn: false, duration: 0.8)
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.8) {
             completion()
         }
     }
+
 }
 
 extension RightOrLeftGestureRecognizerController: AVCaptureVideoDataOutputSampleBufferDelegate {
@@ -237,7 +253,6 @@ extension RightOrLeftGestureRecognizerController: AVCaptureVideoDataOutputSample
             guard thumbTipPoint.confidence > 0.3, littleTipPoint.confidence > 0.3 else {
                 return
             }
-            // Convert points from Vision coordinates to AVFoundation coordinates.
             DispatchQueue.main.async {
                 self.processPoints(
                     thumbTipPoint: thumbTipPoint,
@@ -248,6 +263,7 @@ extension RightOrLeftGestureRecognizerController: AVCaptureVideoDataOutputSample
             print(error)
         }
     }
+
     
     private func processPoints(
         thumbTipPoint: VNRecognizedPoint,
