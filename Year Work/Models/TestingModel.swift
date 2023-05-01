@@ -1,31 +1,36 @@
-import Foundation
+import UIKit
 
-struct TestingModel: Identifiable, Codable {
-    let id: UUID
+class TestingModel: Identifiable {
+    
+    let persistenceController = PersistenceController.shared
+    
     var title: String
     
+    @Published var completedTasks: [CompletedTask] = []
     var phrases: [Phrase]
     var transcribedPhrases: [String] = []
     var lengthInMinutes: Int
-    
-    var completedTasks = Set<Tasks>()
+
     var theme: Theme
     
-    init(id: UUID = UUID(), title: String, phrases: [String], lengthInMinutes: Int, theme: Theme) {
-        self.id = id
+    init(title: String, phrases: [String], lengthInMinutes: Int, theme: Theme) {
         self.title = title
         self.phrases = phrases.map { Phrase(name: $0) }
         self.lengthInMinutes = lengthInMinutes
         self.theme = theme
     }
     
-    mutating func markCompleted(task: Tasks) {
-        completedTasks.insert(task)
+    func markCompleted(task: TestTask, score: Int) {
+        persistenceController.saveCompletedTask(task: task.rawValue, score: score)
+    }
+    
+    func fetchCompletedTasks() {
+        completedTasks = persistenceController.fetchAllCompletedTasks()
     }
 }
 
 extension TestingModel {
-    struct Phrase: Identifiable, Codable {
+    struct Phrase: Identifiable {
         let id: UUID
         var text: String
         

@@ -12,15 +12,15 @@ struct NumbersView: View {
     @State private var showStartButton: Bool = true
     @State private var correctCount: Int = 0
     @State private var brightTiles: [Bool] = Array(repeating: false, count: 9)
+    @State private var digitDisplayTime: TimeInterval = 2
     
-    let maxRounds = 1
-    let digitDisplayTime: TimeInterval = 2
-    let tileHighlightDuration: TimeInterval = 0.1
+    private let maxRounds = 10
+    private let tileHighlightDuration: TimeInterval = 0.1
     
     var body: some View {
         VStack(spacing: 20) {
             Text("Раунд: \(round)")
-                .font(.largeTitle)
+                .font(.title2)
             Spacer()
 
             if isShowingDigits {
@@ -87,6 +87,7 @@ struct NumbersView: View {
     func startRound() -> Void {
         userSequence.removeAll()
         sequence.append(Int.random(in: 1...9))
+        if sequence.count >= 6 { digitDisplayTime = 3 }
         isShowingDigits = true
         showStartButton = false
     }

@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4716DC4A2A005CA700C7C560 /* TestingResultsDataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 4716DC482A005CA700C7C560 /* TestingResultsDataModel.xcdatamodeld */; };
+		4716DC502A0061B500C7C560 /* PersistenceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4716DC4F2A0061B500C7C560 /* PersistenceController.swift */; };
 		4721FF5E29BF15D500CA3771 /* MenuButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4721FF5D29BF15D500CA3771 /* MenuButtonView.swift */; };
 		4721FF6029C0C75E00CA3771 /* SpeechRecognizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4721FF5F29C0C75E00CA3771 /* SpeechRecognizer.swift */; };
 		4721FF6229C0C89D00CA3771 /* SpeechView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4721FF6129C0C89D00CA3771 /* SpeechView.swift */; };
@@ -28,7 +30,7 @@
 		47A0393529C3A9D40096953F /* RightOrLeftRecognizerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47A0393429C3A9D40096953F /* RightOrLeftRecognizerView.swift */; };
 		47A8E56B29BF0C2B00720E92 /* RythmsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47A8E56929BF0C2B00720E92 /* RythmsView.swift */; };
 		47A8E56C29BF0C2B00720E92 /* TileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47A8E56A29BF0C2B00720E92 /* TileView.swift */; };
-		47A8E56E29BF0D8300720E92 /* Tasks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47A8E56D29BF0D8300720E92 /* Tasks.swift */; };
+		47A8E56E29BF0D8300720E92 /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47A8E56D29BF0D8300720E92 /* Task.swift */; };
 		47B303C4296617A5008CCFAF /* Year_WorkApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47B303C3296617A5008CCFAF /* Year_WorkApp.swift */; };
 		47B303C6296617A5008CCFAF /* VideoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47B303C5296617A5008CCFAF /* VideoView.swift */; };
 		47B303C8296617A6008CCFAF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 47B303C7296617A6008CCFAF /* Assets.xcassets */; };
@@ -44,6 +46,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4716DC492A005CA700C7C560 /* TestingResultsDataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = TestingResultsDataModel.xcdatamodel; sourceTree = "<group>"; };
+		4716DC4F2A0061B500C7C560 /* PersistenceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceController.swift; sourceTree = "<group>"; };
 		4721FF5D29BF15D500CA3771 /* MenuButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuButtonView.swift; sourceTree = "<group>"; };
 		4721FF5F29C0C75E00CA3771 /* SpeechRecognizer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpeechRecognizer.swift; sourceTree = "<group>"; };
 		4721FF6129C0C89D00CA3771 /* SpeechView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpeechView.swift; sourceTree = "<group>"; };
@@ -65,7 +69,7 @@
 		47A0393429C3A9D40096953F /* RightOrLeftRecognizerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RightOrLeftRecognizerView.swift; sourceTree = "<group>"; };
 		47A8E56929BF0C2B00720E92 /* RythmsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RythmsView.swift; sourceTree = "<group>"; };
 		47A8E56A29BF0C2B00720E92 /* TileView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TileView.swift; sourceTree = "<group>"; };
-		47A8E56D29BF0D8300720E92 /* Tasks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tasks.swift; sourceTree = "<group>"; };
+		47A8E56D29BF0D8300720E92 /* Task.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
 		47B303C0296617A5008CCFAF /* Year Work.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Year Work.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		47B303C3296617A5008CCFAF /* Year_WorkApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Year_WorkApp.swift; sourceTree = "<group>"; };
 		47B303C5296617A5008CCFAF /* VideoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoView.swift; sourceTree = "<group>"; };
@@ -93,6 +97,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4716DC4E2A00619D00C7C560 /* DB */ = {
+			isa = PBXGroup;
+			children = (
+				4716DC482A005CA700C7C560 /* TestingResultsDataModel.xcdatamodeld */,
+				4716DC4F2A0061B500C7C560 /* PersistenceController.swift */,
+			);
+			path = DB;
+			sourceTree = "<group>";
+		};
 		4785A58A296F229900D13339 /* UIMenu */ = {
 			isa = PBXGroup;
 			children = (
@@ -116,7 +129,7 @@
 			isa = PBXGroup;
 			children = (
 				4721FF6C29C0C90000CA3771 /* TestingModel.swift */,
-				47A8E56D29BF0D8300720E92 /* Tasks.swift */,
+				47A8E56D29BF0D8300720E92 /* Task.swift */,
 				4721FF7029C0C92000CA3771 /* Theme.swift */,
 			);
 			path = Models;
@@ -151,6 +164,7 @@
 			isa = PBXGroup;
 			children = (
 				47F729A329C761A200D46514 /* Year-Work-Info.plist */,
+				4716DC4E2A00619D00C7C560 /* DB */,
 				47A0392F29C3A8B80096953F /* Models */,
 				47A0392E29C3A8980096953F /* SwiftUIHelpers */,
 				47DD24272986BFD0007A9705 /* Orientation */,
@@ -329,8 +343,9 @@
 				4721FF6729C0C8C200CA3771 /* SpeechTimerView.swift in Sources */,
 				4721FF7729C0C94F00CA3771 /* SpeakerArc.swift in Sources */,
 				4721FF6E29C0C90000CA3771 /* TestingModel.swift in Sources */,
+				4716DC4A2A005CA700C7C560 /* TestingResultsDataModel.xcdatamodeld in Sources */,
 				47F7299929C74D4500D46514 /* AVPlayer+ClickSound.swift in Sources */,
-				47A8E56E29BF0D8300720E92 /* Tasks.swift in Sources */,
+				47A8E56E29BF0D8300720E92 /* Task.swift in Sources */,
 				4785A58E296F22D400D13339 /* StartView.swift in Sources */,
 				4721FF7629C0C94F00CA3771 /* CustomProgressViewStyle.swift in Sources */,
 				4721FF6029C0C75E00CA3771 /* SpeechRecognizer.swift in Sources */,
@@ -340,6 +355,7 @@
 				47DD242C2986CBF3007A9705 /* GestureRecognizerController.swift in Sources */,
 				47A8E56C29BF0C2B00720E92 /* TileView.swift in Sources */,
 				47B303C4296617A5008CCFAF /* Year_WorkApp.swift in Sources */,
+				4716DC502A0061B500C7C560 /* PersistenceController.swift in Sources */,
 				4721FF7929C0C98700CA3771 /* TrailingIconLabelStyle.swift in Sources */,
 				47A0393329C3A97B0096953F /* HandGestureProccessor.swift in Sources */,
 				4721FF6229C0C89D00CA3771 /* SpeechView.swift in Sources */,
@@ -565,6 +581,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		4716DC482A005CA700C7C560 /* TestingResultsDataModel.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				4716DC492A005CA700C7C560 /* TestingResultsDataModel.xcdatamodel */,
+			);
+			currentVersion = 4716DC492A005CA700C7C560 /* TestingResultsDataModel.xcdatamodel */;
+			path = TestingResultsDataModel.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 47B303B8296617A5008CCFAF /* Project object */;
 }

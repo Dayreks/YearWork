@@ -11,7 +11,7 @@ struct HandGuessingGameView: View {
     @Binding var model: TestingModel
     
     var body: some View {
-        RightOrLeftRecognizerView().ignoresSafeArea()
+        RightOrLeftRecognizerView(model: $model).ignoresSafeArea()
     }
 }
 

@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SwiftUI
 import AVFoundation
 import Vision
 
@@ -16,16 +17,18 @@ class RightOrLeftGestureRecognizerController: UIViewController {
         case right
     }
     
+    @Binding var model: TestingModel
+    
     private var captureSession: AVCaptureSession?
     private var videoPreviewLayer: AVCaptureVideoPreviewLayer?
+    private var lastProcessingTime: TimeInterval = 0
     
     private let handPoseRequest = VNDetectHumanHandPoseRequest()
     private let handGestureProcessor = HandSideProcessor()
     
-    private weak var scoreLabel: UILabel?
-    private weak var sideLabel: UILabel?
-    
     private weak var instructionView: UIView?
+    private weak var rightInstructionView: UIView?
+    private weak var leftInstructionView: UIView?
     
     private var isGameEnded = false
     private var isInstructionViewShown = false
@@ -37,12 +40,19 @@ class RightOrLeftGestureRecognizerController: UIViewController {
     
     private var currentSide: ScreenSide = .left
     
+    init(model: Binding<TestingModel>) {
+        _model = model
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         prepareCaptureSession()
         prepareCaptureUI()
-        prepareScoreLabel()
-        prepareSideLabel()
         prepareInstructionView()
         
         handPoseRequest.maximumHandCount = 1
@@ -78,41 +88,37 @@ class RightOrLeftGestureRecognizerController: UIViewController {
         self.videoPreviewLayer = videoPreviewLayer
     }
     
-    private func prepareScoreLabel() {
-        let scoreLabel = UILabel()
-        scoreLabel.frame = CGRect(x: 0, y: 50, width: view.bounds.width, height: 40)
-        scoreLabel.textAlignment = .center
-        scoreLabel.font = UIFont.systemFont(ofSize: 24)
-        scoreLabel.text = "Рахунок: 0"
-        view.addSubview(scoreLabel)
-        
-        self.scoreLabel = scoreLabel
-    }
-    
-    private func prepareSideLabel() {
-        let sideLabel = UILabel()
-        sideLabel.frame = CGRect(x: 0, y: (view.bounds.height / 2) - 20, width: view.bounds.width, height: 40)
-        sideLabel.textAlignment = .center
-        sideLabel.font = UIFont.systemFont(ofSize: 24)
-        sideLabel.alpha = 0
-        view.addSubview(sideLabel)
-        
-        self.sideLabel = sideLabel
-    }
-
-    
     private func prepareInstructionView() {
         // Create a view for the left side with a translucent black background
         let leftInstructionView = UIView(frame: CGRect(x: 0, y: 0, width: view.bounds.width / 2, height: view.bounds.height))
         leftInstructionView.backgroundColor = UIColor.white.withAlphaComponent(0.6)
-        view.addSubview(leftInstructionView)
         
+        let leftSideLabel = UILabel()
+        leftSideLabel.frame = CGRect(x: 0, y: (view.bounds.height / 2) - 20, width: view.bounds.width / 2, height: 40)
+        leftSideLabel.center.y = leftInstructionView.center.y
+        leftSideLabel.textAlignment = .center
+        leftSideLabel.font = UIFont.systemFont(ofSize: 24)
+        leftSideLabel.text = "Ліва"
+        leftInstructionView.addSubview(leftSideLabel)
+        
+        view.addSubview(leftInstructionView)
+
         // Create a view for the right side with a translucent black background
         let rightInstructionView = UIView(frame: CGRect(x: view.bounds.width / 2, y: 0, width: view.bounds.width / 2, height: view.bounds.height))
         rightInstructionView.backgroundColor = UIColor.white.withAlphaComponent(0.6)
+        
+        let rightSideLabel = UILabel()
+        rightSideLabel.frame = CGRect(x: 0, y: (view.bounds.height / 2) - 20, width: view.bounds.width / 2, height: 40)
+        rightSideLabel.center.y = rightInstructionView.center.y
+        rightSideLabel.textAlignment = .center
+        rightSideLabel.font = UIFont.systemFont(ofSize: 24)
+        rightSideLabel.text = "Права"
+        rightInstructionView.addSubview(rightSideLabel)
+        
         view.addSubview(rightInstructionView)
         
-        self.instructionView = leftInstructionView
+        self.rightInstructionView = rightInstructionView
+        self.leftInstructionView = leftInstructionView
         
         // Hide the instruction views initially
         leftInstructionView.alpha = 0
@@ -124,12 +130,10 @@ class RightOrLeftGestureRecognizerController: UIViewController {
             setRandomSide()
             
             isInstructionViewShown = true
-            DispatchQueue.main.asyncAfter(deadline: .now() + 1.6) {
-                self.showInstructionView {
-                    self.hideInstructionView {
-                        self.startRoundTimer()
-                        self.isInstructionViewShown = false
-                    }
+            showInstructionView {  [weak self] in
+                self?.hideInstructionView {
+                    self?.startRoundTimer()
+                    self?.isInstructionViewShown = false
                 }
             }
         } else {
@@ -139,18 +143,18 @@ class RightOrLeftGestureRecognizerController: UIViewController {
     
     private func startRoundTimer() {
         roundTimer?.invalidate()
-        roundTimer = Timer.scheduledTimer(withTimeInterval: roundDuration, repeats: false) { _ in
-            self.currentRound += 1
-            self.startRound()
+        roundTimer = Timer.scheduledTimer(withTimeInterval: roundDuration, repeats: false) {  [weak self]  _ in
+            self?.currentRound += 1
+            self?.startRound()
         }
     }
     
     private func updateScore(correct: Bool) {
         if correct {
             currentScore += 1
-            currentRound += 1
-            startRound()
         }
+        currentRound += 1
+        startRound()
     }
     
     private func endGame() {
@@ -162,8 +166,9 @@ class RightOrLeftGestureRecognizerController: UIViewController {
             preferredStyle: .alert
         )
         
-        let okAction = UIAlertAction(title: "OK", style: .default) { _ in
-            self.navigationController?.popViewController(animated: true)
+        let okAction = UIAlertAction(title: "OK", style: .default) {  [weak self]  _ in
+            self?.model.markCompleted(task: .orientation, score: self?.currentScore ?? 0)
+            self?.navigationController?.popViewController(animated: true)
         }
         alertController.addAction(okAction)
         
@@ -176,51 +181,29 @@ class RightOrLeftGestureRecognizerController: UIViewController {
         
         switch currentSide {
         case .left:
-            instructionView?.frame.origin.x = 0
+            instructionView = leftInstructionView
         case .right:
-            instructionView?.frame.origin.x = view.bounds.width / 2
+            instructionView = rightInstructionView
         }
     }
     
-    private func applyTransition(to view: UIView, fadeIn: Bool, duration: TimeInterval) {
-        let transition = CATransition()
-        transition.type = .fade
-        transition.duration = duration
-        transition.timingFunction = CAMediaTimingFunction(name: .easeInEaseOut)
-        
-        view.layer.add(transition, forKey: fadeIn ? "fadeIn" : "fadeOut")
-        view.alpha = fadeIn ? 1 : 0
+    private func applyTransition(to view: UIView, fadeIn: Bool, duration: TimeInterval, completion: ((Bool) -> Void)? = nil) {
+        UIView.animate(withDuration: duration, delay: 0, options: [.curveEaseInOut], animations: {
+            view.alpha = fadeIn ? 1 : 0
+        }, completion: completion)
     }
 
-    
     private func showInstructionView(completion: @escaping () -> Void) {
-        instructionView?.alpha = 0
-        sideLabel?.alpha = 0
-        sideLabel?.text = currentSide == .left ? "Ліва" : "Права"
-        
-        applyTransition(to: instructionView!, fadeIn: true, duration: 0.8)
-        applyTransition(to: sideLabel!, fadeIn: true, duration: 0.8)
-        
-        instructionView?.superview?.subviews.forEach { view in
-            if view != self.instructionView && view != self.scoreLabel && view != self.sideLabel {
-                applyTransition(to: view, fadeIn: false, duration: 0.8)
-            }
-        }
-        
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.8) {
+        applyTransition(to: instructionView!, fadeIn: true, duration: 0.8){ _ in
             completion()
         }
     }
 
     private func hideInstructionView(completion: @escaping () -> Void) {
-        applyTransition(to: instructionView!, fadeIn: false, duration: 0.8)
-        applyTransition(to: sideLabel!, fadeIn: false, duration: 0.8)
-        
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.8) {
+        applyTransition(to: instructionView!, fadeIn: false, duration: 0.8){ _ in
             completion()
         }
     }
-
 }
 
 extension RightOrLeftGestureRecognizerController: AVCaptureVideoDataOutputSampleBufferDelegate {
@@ -230,37 +213,41 @@ extension RightOrLeftGestureRecognizerController: AVCaptureVideoDataOutputSample
         didOutput sampleBuffer: CMSampleBuffer,
         from connection: AVCaptureConnection
     ) {
-        
-        guard !isGameEnded, !isInstructionViewShown else { return }
-        
-        let handler = VNImageRequestHandler(cmSampleBuffer: sampleBuffer, orientation: .up, options: [:])
-        do {
-            // Perform VNDetectHumanHandPoseRequest
-            try handler.perform([handPoseRequest])
-            // Continue only when a hand was detected in the frame.
-            // Since we set the maximumHandCount property of the request to 1, there will be at most one observation.
-            guard let observation = handPoseRequest.results?.first else {
-                return
-            }
-            // Get points for thumb and index finger.
-            let handPoints = try observation.recognizedPoints(.all)
+        let currentTime = Date().timeIntervalSinceReferenceDate
+        if currentTime - lastProcessingTime >= 1.6, !isInstructionViewShown {
+            guard !isGameEnded else { return }
             
-            // Look for tip points.
-            guard let thumbTipPoint = handPoints[.thumbTip],
-                  let littleTipPoint = handPoints[.littleTip]
-            else { return }
-            // Ignore low confidence points.
-            guard thumbTipPoint.confidence > 0.3, littleTipPoint.confidence > 0.3 else {
-                return
+            let handler = VNImageRequestHandler(cmSampleBuffer: sampleBuffer, orientation: .up, options: [:])
+            do {
+                // Perform VNDetectHumanHandPoseRequest
+                try handler.perform([handPoseRequest])
+                // Continue only when a hand was detected in the frame.
+                // Since we set the maximumHandCount property of the request to 1, there will be at most one observation.
+                guard let observation = handPoseRequest.results?.first else {
+                    return
+                }
+                // Get points for thumb and index finger.
+                let handPoints = try observation.recognizedPoints(.all)
+                
+                // Look for tip points.
+                guard let thumbTipPoint = handPoints[.thumbTip],
+                      let littleTipPoint = handPoints[.littleTip]
+                else { return }
+                // Ignore low confidence points.
+                guard thumbTipPoint.confidence > 0.3, littleTipPoint.confidence > 0.3 else {
+                    return
+                }
+                DispatchQueue.main.async {
+                    self.processPoints(
+                        thumbTipPoint: thumbTipPoint,
+                        littleTipPoint: littleTipPoint
+                    )
+                }
+            } catch {
+                print(error)
             }
-            DispatchQueue.main.async {
-                self.processPoints(
-                    thumbTipPoint: thumbTipPoint,
-                    littleTipPoint: littleTipPoint
-                )
-            }
-        } catch {
-            print(error)
+            
+            lastProcessingTime = currentTime
         }
     }
 
@@ -291,7 +278,5 @@ extension RightOrLeftGestureRecognizerController: AVCaptureVideoDataOutputSample
         case .rightHand:
             updateScore(correct: currentSide == .right)
         }
-        
-        scoreLabel?.text = "Рахунок: \(currentScore)"
     }
 }

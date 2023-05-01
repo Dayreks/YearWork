@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum Tasks: String, CaseIterable, Codable {
+enum TestTask: String, CaseIterable, Codable {
     
     case vision, rythms, speech, numbers, orientation
 }

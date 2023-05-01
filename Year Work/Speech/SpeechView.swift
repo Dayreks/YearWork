@@ -8,6 +8,7 @@ struct SpeechView: View {
     @StateObject var speechRecognizer = SpeechRecognizer()
     @State private var isRecording = false
     @State private var showAlert = false
+    @State private var correctScore = 0
     
     var body: some View {
         ZStack {
@@ -18,7 +19,7 @@ struct SpeechView: View {
                     phrases: speechModel.speechPhrases,
                     skipAction: speechModel.skipSpeechPhrase,
                     completedAction: {
-                        model.markCompleted(task: .speech)
+                        model.markCompleted(task: .speech, score: correctScore)
                         presentationMode.wrappedValue.dismiss()
                     })
                 SpeechTimerView(speechPhrases: speechModel.speechPhrases, theme: model.theme)
@@ -37,7 +38,8 @@ struct SpeechView: View {
             )
         }
         .onAppear {
-            if model.completedTasks.contains(.speech) {
+            model.fetchCompletedTasks()
+            if model.completedTasks.contains(where: { $0.task == TestTask.speech.rawValue }) {
                 showAlert = true
             } else {
                 speechModel.reset(lengthInMinutes: model.lengthInMinutes, phrases: model.phrases)

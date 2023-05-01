@@ -44,7 +44,7 @@ struct StartView: View {
                         .padding([.bottom, .leading, .trailing], 16)
                     
                     LazyVGrid(columns: adaptiveColumns, spacing: 20) {
-                        ForEach(Tasks.allCases, id: \.self) { button in
+                        ForEach(TestTask.allCases, id: \.self) { button in
                             
                             switch button {
                             case .vision:
@@ -111,6 +111,9 @@ struct StartView: View {
                         .padding([.trailing, .leading], 16)
 //                    })
                 }
+            }
+            .onAppear() {
+                model.fetchCompletedTasks()
             }
         }
         .navigationBarTitle("")
