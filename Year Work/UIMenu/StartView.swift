@@ -25,7 +25,6 @@ struct StartView: View {
     ]
     
     private var progress: Double {
-        guard model.completedTasks.count < 5 else { return 1 }
         return Double(model.completedTasks.count) / Double(5)
     }
     
@@ -49,7 +48,13 @@ struct StartView: View {
                             switch button {
                             case .vision:
                                 NavigationLink (
-                                    destination: ExplanationView(explanationText: "Повтори своїми руками жести відображені на екрані", theme: model.theme) { VideoView(model: $model)
+                                    destination: ExplanationView(
+                                        model: $model,
+                                        task: .vision,
+                                        explanationText: "Повтори своїми руками жести відображені на екрані",
+                                        theme: model.theme
+                                    ) {
+                                        VideoView(model: $model)
                                     },
                                     label: {
                                     MenuButtonView(color: model.theme.mainColor, image: button.rawValue)
@@ -57,7 +62,13 @@ struct StartView: View {
                                 
                             case .rythms:
                                 NavigationLink (
-                                    destination: ExplanationView(explanationText: "Запамʼятовуй звуки та послідовність ритмів і відтворюй їх у такому ж порядку", theme: model.theme) { RythmsView(model: $model)
+                                    destination: ExplanationView(
+                                        model: $model,
+                                        task: .rythms,
+                                        explanationText: "Запамʼятовуй звуки та послідовність ритмів і відтворюй їх у такому ж порядку",
+                                        theme: model.theme
+                                    ) {
+                                        RythmsView(model: $model)
                                     },
                                     label: {
                                     MenuButtonView(color: model.theme.mainColor, image: button.rawValue)
@@ -65,7 +76,13 @@ struct StartView: View {
                                 
                             case .speech:
                                 NavigationLink (
-                                    destination: ExplanationView(explanationText: "Читай в слух те що бачиш посередині екрану", theme: model.theme) { SpeechView(model: $model)
+                                    destination: ExplanationView(
+                                        model: $model,
+                                        task: .speech,
+                                        explanationText: "Читай в слух те що бачиш посередині екрану",
+                                        theme: model.theme
+                                    ) {
+                                        SpeechView(model: $model)
                                     },
                                     label: {
                                     MenuButtonView(color: model.theme.mainColor, image: button.rawValue)
@@ -73,7 +90,12 @@ struct StartView: View {
                                 
                             case .numbers:
                                 NavigationLink (
-                                    destination: ExplanationView(explanationText: "Запамʼятовуй послідовність цифр та відтворюй її по памʼяті", theme: model.theme) { NumbersView(model: $model)
+                                    destination: ExplanationView(
+                                        model: $model,
+                                        task: .numbers,
+                                        explanationText: "Запамʼятовуй послідовність цифр та відтворюй її по памʼяті",
+                                        theme: model.theme) {
+                                            NumbersView(model: $model)
                                     },
                                     label: {
                                     MenuButtonView(color: model.theme.mainColor, image: button.rawValue)
@@ -81,7 +103,13 @@ struct StartView: View {
                                 
                             case .orientation:
                                 NavigationLink (
-                                    destination: ExplanationView(explanationText: "Піднімай руку з тої сторони де підсвічується екран", theme: model.theme) { HandGuessingGameView(model: $model)
+                                    destination: ExplanationView(
+                                        model: $model,
+                                        task: .orientation,
+                                        explanationText: "Піднімай руку з тої сторони де підсвічується екран",
+                                        theme: model.theme
+                                    ) {
+                                        HandGuessingGameView(model: $model)
                                     },
                                     label: {
                                     MenuButtonView(color: model.theme.mainColor, image: button.rawValue)
@@ -93,22 +121,30 @@ struct StartView: View {
                     Spacer()
                     
 //                    NavigationLink (destination: VideoView(model: $model), label: {
-                        VStack{
-                            Spacer()
-                            
-                            HStack(alignment: .center) {
-                                Text ("Результати")
-                                    .foregroundColor(.white)
-                                    .font(.system(size: 20))
-                            }
-                            .frame(minWidth: 100, maxWidth: 200, minHeight: 25, maxHeight: 60)
-                            .background(model.theme.mainColor)
-                            .clipShape(Capsule())
-                            .onTapGesture {
-                                print(model.transcribedPhrases)
+                    VStack{
+                        Spacer()
+                        
+                        Group {
+                            if model.completedTasks.count > 5 {
+                                HStack(alignment: .center) {
+                                    Text ("Результати")
+                                        .foregroundColor(.white)
+                                        .font(.system(size: 20))
+                                }
+                                .frame(minWidth: 100, maxWidth: 200, minHeight: 25, maxHeight: 60)
+                                .background(model.theme.mainColor)
+                                .clipShape(Capsule())
+                                .onTapGesture {
+                                    model.completedTasks.forEach {
+                                        if $0.task == TestTask.speech.rawValue {
+                                            print($0.transcribedPhrases)
+                                        }
+                                    }
+                                }
                             }
                         }
                         .padding([.trailing, .leading], 16)
+                    }
 //                    })
                 }
             }

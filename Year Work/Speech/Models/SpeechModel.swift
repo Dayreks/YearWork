@@ -31,15 +31,19 @@ class SpeechModel: ObservableObject {
     }
     private var startDate: Date?
     
-    init(lengthInMinutes: Int = 0, phrases: [TestingModel.Phrase] = []) {
+    init(lengthInMinutes: Int = 0, speechPhrases: [SpeechPhrase] = []) {
         self.lengthInMinutes = lengthInMinutes
-        self.speechPhrases = phrases.list
+        self.speechPhrases = speechPhrases
         secondsRemaining = lengthInSeconds
-        currentPhrase = phraseText
+        if !speechPhrases.isEmpty {
+            currentPhrase = phraseText
+        } else {
+            currentPhrase = ""
+        }
     }
     
     func startPhraseRead() {
-        changeToPhrase(at: 0)
+        nextPhrase()
     }
     
     func stopPhraseRead() {
@@ -50,20 +54,25 @@ class SpeechModel: ObservableObject {
     
     func skipSpeechPhrase() {
         phraseChangedAction?()
-        changeToPhrase(at: pharseIndex + 1)
+        nextPhrase()
     }
-
-    private func changeToPhrase(at index: Int) {
-        if index > 0 {
-            let previousSpeakerIndex = index - 1
+    
+    private func nextPhrase() {
+        pharseIndex += 1
+        guard pharseIndex < speechPhrases.count else {
+            stopPhraseRead() // Stop the timer when there are no more phrases
+            return
+        }
+        
+        if pharseIndex > 0 {
+            let previousSpeakerIndex = pharseIndex - 1
             speechPhrases[previousSpeakerIndex].isCompleted = true
         }
+        
         secondsElapsedForPhrase = 0
-        guard index < speechPhrases.count else { return }
-        pharseIndex = index
         currentPhrase = phraseText
-
-        secondsElapsed = index * secondsPerPhrase
+        
+        secondsElapsed = pharseIndex * secondsPerPhrase
         secondsRemaining = lengthInSeconds - secondsElapsed
         startDate = Date()
         timer = Timer.scheduledTimer(withTimeInterval: frequency, repeats: true) { [weak self] timer in
@@ -85,31 +94,33 @@ class SpeechModel: ObservableObject {
         guard !timerStopped else { return }
 
         if secondsElapsedForPhrase >= secondsPerPhrase {
-            changeToPhrase(at: pharseIndex + 1)
+            nextPhrase()
             phraseChangedAction?()
         }
     }
     
-    func reset(lengthInMinutes: Int, phrases: [TestingModel.Phrase]) {
+    func reset(lengthInMinutes: Int, speechPhrases: [SpeechPhrase]) {
         self.lengthInMinutes = lengthInMinutes
-        self.speechPhrases = phrases.list
+        self.speechPhrases = speechPhrases
         secondsRemaining = lengthInSeconds
         currentPhrase = phraseText
     }
-}
-
-extension TestingModel {
-    var speechModel: SpeechModel {
-        SpeechModel(lengthInMinutes: lengthInMinutes, phrases: phrases)
+    
+    func calculateSpeechScore(transcribedPhrases: [String], originalPhrases: [SpeechModel.SpeechPhrase]) -> Int {
+        var score = 0
+        
+        for transcribedPhrase in transcribedPhrases {
+            if originalPhrases.contains(where: { $0.text == transcribedPhrase }) {
+                score += 1
+            }
+        }
+        
+        return score
     }
 }
 
-extension Array where Element == TestingModel.Phrase {
-    var list: [SpeechModel.SpeechPhrase] {
-        if isEmpty {
-            return [SpeechModel.SpeechPhrase(text: "Phrase 1", isCompleted: false)]
-        } else {
-            return map { SpeechModel.SpeechPhrase(text: $0.text, isCompleted: false) }
-        }
+extension SpeechModel {
+    var speechModel: SpeechModel {
+        SpeechModel( lengthInMinutes: SpeechResultsModel.lengthInMinutes, speechPhrases: SpeechResultsModel.speechPhrases)
     }
 }

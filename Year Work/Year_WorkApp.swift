@@ -11,8 +11,6 @@ import SwiftUI
 struct Year_WorkApp: App {
     @State var model = TestingModel(
         title: "MainTestingModel",
-        phrases: ["а", "та", "ла", "жах", "страх", "вибух"],
-        lengthInMinutes: 1,
         theme: .navy
     )
     

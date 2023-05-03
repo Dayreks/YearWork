@@ -6,27 +6,53 @@
 //
 
 import UIKit
+import SwiftUI
 import AVFoundation
 import Vision
 
 class GestureRecognizerController: UIViewController {
     
+    @Binding var model: TestingModel
+
     private var captureSession: AVCaptureSession?
     private var videoPreviewLayer: AVCaptureVideoPreviewLayer?
     
     private let handPoseRequest = VNDetectHumanHandPoseRequest()
     private let handGestureProcessor = HandGestureProcessor()
     
-    private weak var emojiView: UILabel?
+    private weak var proposedGestureLabel: UILabel?
+    private weak var instructionsView: UIView?
+    
+    private var proposedGesture: HandGestureProcessor.HandGesture = .empty
+    private var totalRounds: Int = 10
+    private var currentScore: Int = 0
+    private var countdownTimer: Timer?
+    private var remainingTime: Int = 5
+    
+    private var isGameEnded = false
+    private var isResultsOfRoundShown = false
+    
+    init(model: Binding<TestingModel>) {
+        _model = model
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         prepareCaptureSession()
         prepareCaptureUI()
-        prepareEmojiView()
+        prepareProposedGestureLabel()
+        prepareInstructionsView()
+        proposeRandomGesture()
         
         // The default value for this property is 2.
         handPoseRequest.maximumHandCount = 1
+        
+        startCountdownTimer()
     }
     
     private func prepareCaptureSession() {
@@ -57,14 +83,77 @@ class GestureRecognizerController: UIViewController {
         self.videoPreviewLayer = videoPreviewLayer
     }
     
-    private func prepareEmojiView() {
-        let emojiView = UILabel()
-        emojiView.frame = self.view.bounds
-        emojiView.textAlignment = .center
-        emojiView.font = UIFont.systemFont(ofSize: 300)
-        view.addSubview(emojiView)
+    
+    private func prepareProposedGestureLabel() {
+        let proposedGestureLabel = UILabel()
+        proposedGestureLabel.translatesAutoresizingMaskIntoConstraints = false
+        proposedGestureLabel.font = UIFont.systemFont(ofSize: 24)
+        proposedGestureLabel.textColor = .white
+        view.addSubview(proposedGestureLabel)
         
-        self.emojiView = emojiView
+        NSLayoutConstraint.activate([
+            proposedGestureLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 10),
+            proposedGestureLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+        ])
+        
+        self.proposedGestureLabel = proposedGestureLabel
+    }
+    
+    private func proposeRandomGesture() {
+        let gestures: [HandGestureProcessor.HandGesture] = [.highFive, .thumbDown, .thumbUp, .vSign]
+        
+        proposedGesture = gestures.randomElement() ?? .highFive
+        proposedGestureLabel?.text = "Покажи: \(proposedGesture.rawValue)"
+    }
+    
+    private func startCountdownTimer() {
+        countdownTimer?.invalidate()
+        remainingTime = 5
+        
+        countdownTimer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { [weak self] _ in
+            self?.remainingTime -= 1
+            
+            if self?.remainingTime == 0 {
+                self?.countdownTimer?.invalidate()
+                self?.nextRound()
+            }
+        }
+    }
+    
+    private func nextRound() {
+        totalRounds -= 1
+        if totalRounds == 0 {
+            gameOver()
+        } else {
+            startCountdownTimer()
+            proposeRandomGesture()
+        }
+    }
+    
+    private func gameOver() {
+        // Handle the game over scenario, e.g., present an alert or navigate to another screen
+        isGameEnded = true
+        
+        let alertController = UIAlertController(
+            title: "Вітання!",
+            message: "Ви успішно завершили цю частину",
+            preferredStyle: .alert
+        )
+        
+        let okAction = UIAlertAction(title: "OK", style: .default) {  [weak self]  _ in
+            self?.model.markCompleted(task: .vision, score: self?.currentScore ?? 0, transcribedPhrases: nil)
+            self?.navigationController?.popViewController(animated: true)
+        }
+        alertController.addAction(okAction)
+        
+        present(alertController, animated: true, completion: nil)
+    }
+    
+    private func prepareInstructionsView() {
+        let instructionsView = UIView()
+        // Customize your instructions view here
+        self.instructionsView = instructionsView
+        view.addSubview(instructionsView)
     }
 }
 
@@ -78,12 +167,12 @@ extension GestureRecognizerController: AVCaptureVideoDataOutputSampleBufferDeleg
         
         let handler = VNImageRequestHandler(cmSampleBuffer: sampleBuffer, orientation: .up, options: [:])
         do {
+            guard !isGameEnded, !isResultsOfRoundShown else { return }
             // Perform VNDetectHumanHandPoseRequest
             try handler.perform([handPoseRequest])
             // Continue only when a hand was detected in the frame.
             // Since we set the maximumHandCount property of the request to 1, there will be at most one observation.
             guard let observation = handPoseRequest.results?.first else {
-                emojiView?.text = ""
                 return
             }
             // Get points for thumb and index finger.
@@ -99,7 +188,6 @@ extension GestureRecognizerController: AVCaptureVideoDataOutputSampleBufferDeleg
             else { return }
             // Ignore low confidence points.
             guard thumbTipPoint.confidence > 0.3 && indexTipPoint.confidence > 0.3 && middleTipPoint.confidence > 0.3, ringTipPoint.confidence > 0.3 && littleTipPoint.confidence > 0.3, wristPoint.confidence > 0.3 else {
-                emojiView?.text = ""
                 return
             }
             // Convert points from Vision coordinates to AVFoundation coordinates.
@@ -142,7 +230,6 @@ extension GestureRecognizerController: AVCaptureVideoDataOutputSampleBufferDeleg
               let littleTipConvertedPoint = videoPreviewLayer?.layerPointConverted(fromCaptureDevicePoint: littleTipCGPoint),
               let wristConvertedPoint = videoPreviewLayer?.layerPointConverted(fromCaptureDevicePoint: wristCGPoint)
         else {
-            emojiView?.text = "😱"
             return
         }
         
@@ -154,25 +241,19 @@ extension GestureRecognizerController: AVCaptureVideoDataOutputSampleBufferDeleg
             littleTip: littleTipConvertedPoint,
             wrist: wristConvertedPoint)
         
-        switch state {
-        case .thumbUp:
-            emojiView?.text = "👍"
-        case .thumbDown:
-            emojiView?.text = "👎"
-        case .vSign:
-            emojiView?.text = "✌️"
-        case .highFive:
-            emojiView?.text = "🖐️"
-        case .empty:
-            emojiView?.text = ""
-        }
+        isResultsOfRoundShown = true
         
-        ///Debug
-//    
-//        print("1. Vision Coordinates: \(thumbTipPoint)")
-//        print("2. AVFoundation coordinates: \(thumbTipCGPoint)")
-//        print("3. UIKit coordinates: \(thumbTipConvertedPoint)")
-//        print(state)
+        if state == proposedGesture {
+            currentScore += 1
+            DispatchQueue.main.asyncAfter(deadline: .now() + 1.6) {
+                self.nextRound()
+                self.isResultsOfRoundShown = false
+            }
+        } else {
+            DispatchQueue.main.asyncAfter(deadline: .now() + 1.6) {
+                self.nextRound()
+                self.isResultsOfRoundShown = false
+            }
+        }
     }
 }
-

@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		4716DC4A2A005CA700C7C560 /* TestingResultsDataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 4716DC482A005CA700C7C560 /* TestingResultsDataModel.xcdatamodeld */; };
 		4716DC502A0061B500C7C560 /* PersistenceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4716DC4F2A0061B500C7C560 /* PersistenceController.swift */; };
+		4719E8DA2A01A46000C1DD55 /* SpeechResultModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4719E8D92A01A46000C1DD55 /* SpeechResultModel.swift */; };
 		4721FF5E29BF15D500CA3771 /* MenuButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4721FF5D29BF15D500CA3771 /* MenuButtonView.swift */; };
 		4721FF6029C0C75E00CA3771 /* SpeechRecognizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4721FF5F29C0C75E00CA3771 /* SpeechRecognizer.swift */; };
 		4721FF6229C0C89D00CA3771 /* SpeechView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4721FF6129C0C89D00CA3771 /* SpeechView.swift */; };
@@ -48,6 +49,7 @@
 /* Begin PBXFileReference section */
 		4716DC492A005CA700C7C560 /* TestingResultsDataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = TestingResultsDataModel.xcdatamodel; sourceTree = "<group>"; };
 		4716DC4F2A0061B500C7C560 /* PersistenceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceController.swift; sourceTree = "<group>"; };
+		4719E8D92A01A46000C1DD55 /* SpeechResultModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeechResultModel.swift; sourceTree = "<group>"; };
 		4721FF5D29BF15D500CA3771 /* MenuButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuButtonView.swift; sourceTree = "<group>"; };
 		4721FF5F29C0C75E00CA3771 /* SpeechRecognizer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpeechRecognizer.swift; sourceTree = "<group>"; };
 		4721FF6129C0C89D00CA3771 /* SpeechView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpeechView.swift; sourceTree = "<group>"; };
@@ -140,6 +142,7 @@
 			children = (
 				4721FF6D29C0C90000CA3771 /* SpeechModel.swift */,
 				4721FF5F29C0C75E00CA3771 /* SpeechRecognizer.swift */,
+				4719E8D92A01A46000C1DD55 /* SpeechResultModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -236,8 +239,8 @@
 			children = (
 				47A0392A29C39C9F0096953F /* HandGuessingGameView.swift */,
 				47A0392C29C39FD50096953F /* RightOrLeftGestureRecognizer.swift */,
-				47A0393029C3A9250096953F /* HandSideProccessor.swift */,
 				47A0393429C3A9D40096953F /* RightOrLeftRecognizerView.swift */,
+				47A0393029C3A9250096953F /* HandSideProccessor.swift */,
 			);
 			path = Orientation;
 			sourceTree = "<group>";
@@ -352,6 +355,7 @@
 				47DD242E2986D4DB007A9705 /* GestureRecognizerViewRepresentable.swift in Sources */,
 				47A8E56B29BF0C2B00720E92 /* RythmsView.swift in Sources */,
 				47B303C6296617A5008CCFAF /* VideoView.swift in Sources */,
+				4719E8DA2A01A46000C1DD55 /* SpeechResultModel.swift in Sources */,
 				47DD242C2986CBF3007A9705 /* GestureRecognizerController.swift in Sources */,
 				47A8E56C29BF0C2B00720E92 /* TileView.swift in Sources */,
 				47B303C4296617A5008CCFAF /* Year_WorkApp.swift in Sources */,

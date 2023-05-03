@@ -8,11 +8,11 @@
 import Foundation
 
 class HandGestureProcessor {
-    enum HandGesture {
-        case thumbUp
-        case thumbDown
-        case vSign
-        case highFive
+    enum HandGesture: String, CaseIterable {
+        case thumbUp = "👍"
+        case thumbDown = "👎"
+        case vSign = "✌️"
+        case highFive = "🖐️"
         case empty
     }
     

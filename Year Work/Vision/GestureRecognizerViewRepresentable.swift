@@ -8,10 +8,12 @@
 import SwiftUI
 
 struct GestureRecognizerView: UIViewControllerRepresentable {
+    @Binding var model: TestingModel
+    
     typealias UIViewControllerType = GestureRecognizerController
     
     func makeUIViewController(context: Context) -> GestureRecognizerController {
-        let vc = GestureRecognizerController()
+        let vc = GestureRecognizerController(model: $model)
         return vc
     }
     

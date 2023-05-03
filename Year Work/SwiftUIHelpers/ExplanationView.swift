@@ -8,14 +8,22 @@
 import SwiftUI
 
 struct ExplanationView<Content: View>: View {
+    @Environment(\.presentationMode) var presentationMode
+    
     let explanationText: String
     let destination: Content
     let theme: Theme
+    let task: TestTask
     
-    init(explanationText: String, theme: Theme, @ViewBuilder destination: () -> Content) {
+    @Binding var model: TestingModel
+    @State private var showAlert = false
+    
+    init(model: Binding<TestingModel>, task: TestTask, explanationText: String, theme: Theme, @ViewBuilder destination: () -> Content) {
         self.explanationText = explanationText
         self.destination = destination()
         self.theme = theme
+        self.task = task
+        _model = model
     }
     
     var body: some View {
@@ -37,6 +45,19 @@ struct ExplanationView<Content: View>: View {
                     .clipShape(Capsule())
             }
             .padding(.bottom, 20)
+            .alert(isPresented: $showAlert) {
+                Alert(
+                    title: Text("Ви вже завершили цю секцію"),
+                    dismissButton: .default(Text("Ок")) {
+                        presentationMode.wrappedValue.dismiss()
+                    }
+                )
+            }
+            .onAppear() {
+                if model.completedTasks.contains(where: { $0.task == task.rawValue}) {
+                    showAlert = true
+                }
+            }
         }
     }
 }
@@ -44,7 +65,7 @@ struct ExplanationView<Content: View>: View {
 
 struct ExplanationView_Previews: PreviewProvider {
     static var previews: some View {
-        ExplanationView(explanationText: "Explanation", theme: .indigo) {
+        ExplanationView(model: .constant(TestingModel.sampleData[0]), task: .vision, explanationText: "Explanation", theme: .indigo) {
             HandGuessingGameView(model: .constant(TestingModel.sampleData[0]))
         }
     }

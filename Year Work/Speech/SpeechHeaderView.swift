@@ -13,15 +13,15 @@ struct SpeechHeaderView: View {
         return phrases.dropLast().allSatisfy { $0.isCompleted }
     }
     private var speakerText: String {
-        guard let phraseNumber = phraseNumber else { return "No more phrases" }
-        return "Phrase \(phraseNumber) of \(phrases.count)"
+        guard let phraseNumber = phraseNumber else { return "Всі фрази завершились" }
+        return "Фраза \(phraseNumber) of \(phrases.count)"
     }
     
     var body: some View {
         VStack {
             HStack {
                 if isLastSpeaker {
-                    Text("Continue")
+                    Text("Продовжити")
                     Spacer()
                     Button(action: completedAction) {
                         Image(systemName: "forward.fill")
@@ -42,7 +42,7 @@ struct SpeechHeaderView: View {
 
 struct SpeechFooterView_Previews: PreviewProvider {
     static var previews: some View {
-        SpeechHeaderView(phrases: TestingModel.sampleData[0].phrases.list, skipAction: {}, completedAction: {})
+        SpeechHeaderView(phrases: SpeechResultsModel.speechPhrases, skipAction: {}, completedAction: {})
             .previewLayout(.sizeThatFits)
     }
 }

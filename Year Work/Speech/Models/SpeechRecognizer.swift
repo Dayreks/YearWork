@@ -2,6 +2,7 @@ import AVFoundation
 import Foundation
 import Speech
 import SwiftUI
+import Combine
 
 /// A helper for transcribing speech to text using SFSpeechRecognizer and AVAudioEngine.
 class SpeechRecognizer: ObservableObject {
@@ -22,7 +23,9 @@ class SpeechRecognizer: ObservableObject {
     }
     
     var transcript: String = ""
+    let wordRecognized = PassthroughSubject<Void, Never>()
     
+    private var wordSubscription: AnyCancellable?
     private var audioEngine: AVAudioEngine?
     private var request: SFSpeechAudioBufferRecognitionRequest?
     private var task: SFSpeechRecognitionTask?
@@ -82,6 +85,36 @@ class SpeechRecognizer: ObservableObject {
         }
     }
     
+    /**
+        Begin transcribing audio until first word.
+     
+        Creates a `SFSpeechRecognitionTask` that transcribes speech to text until you call `stopTranscribing()`.
+        The resulting transcription is continuously written to the published `transcript` property.
+     */
+    func transcribeUntilWordRecognized() {
+        DispatchQueue(label: "Speech Recognizer Queue", qos: .background).async { [weak self] in
+            guard let self = self, let recognizer = self.recognizer, recognizer.isAvailable else {
+                self?.speakError(RecognizerError.recognizerIsUnavailable)
+                return
+            }
+
+            do {
+                let (audioEngine, request) = try Self.prepareEngine()
+                self.audioEngine = audioEngine
+                self.request = request
+                
+                self.wordSubscription = self.wordRecognized.sink { [weak self] _ in
+                    self?.stopTranscribing()
+                }
+                
+                self.task = recognizer.recognitionTask(with: request, resultHandler: self.recognitionHandler(result:error:))
+            } catch {
+                self.reset()
+                self.speakError(error)
+            }
+        }
+    }
+    
     /// Stop transcribing audio.
     func stopTranscribing() {
         reset()
@@ -128,6 +161,7 @@ class SpeechRecognizer: ObservableObject {
         
         if let result = result {
             speak(result.bestTranscription.formattedString)
+            wordRecognized.send()
         }
     }
     

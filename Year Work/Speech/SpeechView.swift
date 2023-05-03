@@ -4,11 +4,11 @@ import AVFoundation
 struct SpeechView: View {
     @Environment(\.presentationMode) var presentationMode
     @Binding var model: TestingModel
+    @StateObject var speechResultsModel = SpeechResultsModel()
     @StateObject var speechModel = SpeechModel()
     @StateObject var speechRecognizer = SpeechRecognizer()
     @State private var isRecording = false
     @State private var showAlert = false
-    @State private var correctScore = 0
     
     var body: some View {
         ZStack {
@@ -19,7 +19,7 @@ struct SpeechView: View {
                     phrases: speechModel.speechPhrases,
                     skipAction: speechModel.skipSpeechPhrase,
                     completedAction: {
-                        model.markCompleted(task: .speech, score: correctScore)
+                        model.markCompleted(task: .speech, score: speechResultsModel.correctScore, transcribedPhrases: speechResultsModel.transcribedResults)
                         presentationMode.wrappedValue.dismiss()
                     })
                 SpeechTimerView(speechPhrases: speechModel.speechPhrases, theme: model.theme)
@@ -29,30 +29,18 @@ struct SpeechView: View {
             .padding([.leading, .trailing], 16)
         }
         .foregroundColor(model.theme.accentColor)
-        .alert(isPresented: $showAlert) {
-            Alert(
-                title: Text("You have completed this part already"),
-                dismissButton: .default(Text("Ok")) {
-                    presentationMode.wrappedValue.dismiss()
-                }
-            )
-        }
         .onAppear {
             model.fetchCompletedTasks()
-            if model.completedTasks.contains(where: { $0.task == TestTask.speech.rawValue }) {
-                showAlert = true
-            } else {
-                speechModel.reset(lengthInMinutes: model.lengthInMinutes, phrases: model.phrases)
-                speechRecognizer.reset()
-                speechRecognizer.transcribe()
-                isRecording = true
-                speechModel.startPhraseRead()
-                
-                speechModel.phraseChangedAction = {
-                    speechRecognizer.stopTranscribing()
-                    model.transcribedPhrases.append(speechRecognizer.transcript)
-                    speechRecognizer.transcribe()
-                }
+            speechModel.reset(lengthInMinutes: SpeechResultsModel.lengthInMinutes, speechPhrases: SpeechResultsModel.speechPhrases)
+            speechRecognizer.reset()
+            speechRecognizer.transcribeUntilWordRecognized()
+            isRecording = true
+            speechModel.startPhraseRead()
+            
+            speechModel.phraseChangedAction = {
+                speechRecognizer.stopTranscribing()
+                speechResultsModel.storeTranscribedResult(speechRecognizer.transcript)
+                speechRecognizer.transcribeUntilWordRecognized()
             }
         }
         .onDisappear {

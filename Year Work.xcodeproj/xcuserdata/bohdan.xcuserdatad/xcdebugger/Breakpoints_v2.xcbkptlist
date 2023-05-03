@@ -87,22 +87,6 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "8EF67917-7717-48F9-8ED8-C4118B854604"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Year Work/Speech/SpeechView.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "54"
-            endingLineNumber = "54"
-            landmarkName = "body"
-            landmarkType = "24">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
             uuid = "9534280D-14F6-4008-8395-89A465C6D38E"
             shouldBeEnabled = "No"
             ignoreCount = "0"
@@ -167,46 +151,78 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "7E9331A1-B821-4E19-A1A0-E840FB7E40D0"
+            uuid = "2D383A00-C843-452E-804E-F9E6FF405270"
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Year Work/Models/TestingModel.swift"
+            filePath = "Year Work/UIMenu/StartView.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "28"
-            endingLineNumber = "28"
-            landmarkName = "fetchCompletedTasks()"
+            startingLineNumber = "152"
+            endingLineNumber = "152"
+            landmarkName = "body"
+            landmarkType = "24">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "189694C5-1841-4E87-AD66-816DF27B0C51"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Year Work/Orientation/RightOrLeftGestureRecognizer.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "170"
+            endingLineNumber = "170"
+            landmarkName = "endGame()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "CB17955D-5A3C-436F-85AC-0E615FDC2526"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Year Work/Vision/GestureRecognizerController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "248"
+            endingLineNumber = "248"
+            landmarkName = "processPoints(thumbTipPoint:indexTipPoint:middleTipPoint:ringTipPoint:littleTipPoint:wristPoint:)"
             landmarkType = "7">
             <Locations>
                <Location
-                  uuid = "7E9331A1-B821-4E19-A1A0-E840FB7E40D0 - bf3435a81bb1de7f"
+                  uuid = "CB17955D-5A3C-436F-85AC-0E615FDC2526 - 3c7836d4398a7fee"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "Year_Work.TestingModel.fetchCompletedTasks() -&gt; Swift.Array&lt;Year_Work.CompletedTask&gt;"
+                  symbolName = "Year_Work.GestureRecognizerController.processPoints(thumbTipPoint: __C.VNRecognizedPoint, indexTipPoint: __C.VNRecognizedPoint, middleTipPoint: __C.VNRecognizedPoint, ringTipPoint: __C.VNRecognizedPoint, littleTipPoint: __C.VNRecognizedPoint, wristPoint: __C.VNRecognizedPoint) -&gt; ()"
                   moduleName = "Year Work"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/bohdan/Documents/Year%20Work/Main%20Project/Year%20Work/Models/TestingModel.swift"
+                  urlString = "file:///Users/bohdan/Documents/Year%20Work/Main%20Project/Year%20Work/Vision/GestureRecognizerController.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "28"
-                  endingLineNumber = "28"
-                  offsetFromSymbolStart = "68">
+                  startingLineNumber = "257"
+                  endingLineNumber = "257"
+                  offsetFromSymbolStart = "3084">
                </Location>
                <Location
-                  uuid = "7E9331A1-B821-4E19-A1A0-E840FB7E40D0 - c5dab048972b9bf5"
+                  uuid = "CB17955D-5A3C-436F-85AC-0E615FDC2526 - 509355357cf82106"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "Year_Work.TestingModel.fetchCompletedTasks() -&gt; ()"
+                  symbolName = "closure #1 @Swift.MainActor () -&gt; () in Year_Work.GestureRecognizerController.processPoints(thumbTipPoint: __C.VNRecognizedPoint, indexTipPoint: __C.VNRecognizedPoint, middleTipPoint: __C.VNRecognizedPoint, ringTipPoint: __C.VNRecognizedPoint, littleTipPoint: __C.VNRecognizedPoint, wristPoint: __C.VNRecognizedPoint) -&gt; ()"
                   moduleName = "Year Work"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/bohdan/Documents/Year%20Work/Main%20Project/Year%20Work/Models/TestingModel.swift"
+                  urlString = "file:///Users/bohdan/Documents/Year%20Work/Main%20Project/Year%20Work/Vision/GestureRecognizerController.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "28"
-                  endingLineNumber = "28"
+                  startingLineNumber = "258"
+                  endingLineNumber = "258"
                   offsetFromSymbolStart = "32">
                </Location>
             </Locations>
@@ -215,49 +231,141 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "52E01AF3-72B7-41A4-BF86-5F70D0C2A793"
+            uuid = "F31B190D-86EF-4A42-88E4-C9CD7BF9A749"
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Year Work/Models/TestingModel.swift"
+            filePath = "Year Work/Vision/GestureRecognizerController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "27"
-            endingLineNumber = "27"
-            landmarkName = "fetchCompletedTasks()"
+            startingLineNumber = "246"
+            endingLineNumber = "246"
+            landmarkName = "processPoints(thumbTipPoint:indexTipPoint:middleTipPoint:ringTipPoint:littleTipPoint:wristPoint:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "9314B604-BD0A-4108-86BE-DBC56D3F63B6"
+            uuid = "54AC645E-08B2-4E12-A1C4-74C04566ADB0"
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Year Work/Models/TestingModel.swift"
+            filePath = "Year Work/Vision/GestureRecognizerController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "24"
-            endingLineNumber = "24"
-            landmarkName = "markCompleted(task:score:)"
+            startingLineNumber = "209"
+            endingLineNumber = "209"
+            landmarkName = "processPoints(thumbTipPoint:indexTipPoint:middleTipPoint:ringTipPoint:littleTipPoint:wristPoint:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "2D383A00-C843-452E-804E-F9E6FF405270"
+            uuid = "25000C8E-C85F-4583-B6BD-53ACE6F6B432"
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Year Work/UIMenu/StartView.swift"
+            filePath = "Year Work/Vision/GestureRecognizerController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "116"
-            endingLineNumber = "116"
-            landmarkName = "body"
-            landmarkType = "24">
+            startingLineNumber = "26"
+            endingLineNumber = "26"
+            landmarkName = "GestureRecognizerController"
+            landmarkType = "3">
+            <Locations>
+               <Location
+                  uuid = "25000C8E-C85F-4583-B6BD-53ACE6F6B432 - 5c88b6dfd3b9d86a"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Year_Work.GestureRecognizerController.proposedGesture.getter : Year_Work.HandGestureProcessor.HandGesture"
+                  moduleName = "Year Work"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/bohdan/Documents/Year%20Work/Main%20Project/Year%20Work/Vision/GestureRecognizerController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "25"
+                  endingLineNumber = "25"
+                  offsetFromSymbolStart = "84">
+               </Location>
+               <Location
+                  uuid = "25000C8E-C85F-4583-B6BD-53ACE6F6B432 - 55d801f60507e45e"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Year_Work.GestureRecognizerController.proposedGesture.setter : Year_Work.HandGestureProcessor.HandGesture"
+                  moduleName = "Year Work"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/bohdan/Documents/Year%20Work/Main%20Project/Year%20Work/Vision/GestureRecognizerController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "25"
+                  endingLineNumber = "25"
+                  offsetFromSymbolStart = "92">
+               </Location>
+               <Location
+                  uuid = "25000C8E-C85F-4583-B6BD-53ACE6F6B432 - feb511476bd75769"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Year_Work.GestureRecognizerController.proposedGesture.modify : Year_Work.HandGestureProcessor.HandGesture"
+                  moduleName = "Year Work"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/bohdan/Documents/Year%20Work/Main%20Project/Year%20Work/Vision/GestureRecognizerController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "25"
+                  endingLineNumber = "25"
+                  offsetFromSymbolStart = "0">
+               </Location>
+               <Location
+                  uuid = "25000C8E-C85F-4583-B6BD-53ACE6F6B432 - 76b27bdc2e2e87"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Year_Work.GestureRecognizerController.proposedGesture.modify : Year_Work.HandGestureProcessor.HandGesture with unmangled suffix &quot;.resume.0&quot;"
+                  moduleName = "Year Work"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/bohdan/Documents/Year%20Work/Main%20Project/Year%20Work/Vision/GestureRecognizerController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "25"
+                  endingLineNumber = "25"
+                  offsetFromSymbolStart = "16">
+               </Location>
+               <Location
+                  uuid = "25000C8E-C85F-4583-B6BD-53ACE6F6B432 - d1598ab5fa8c4981"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Year_Work.GestureRecognizerController.init(nibName: Swift.Optional&lt;Swift.String&gt;, bundle: Swift.Optional&lt;__C.NSBundle&gt;) -&gt; Year_Work.GestureRecognizerController"
+                  moduleName = "Year Work"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/bohdan/Documents/Year%20Work/Main%20Project/Year%20Work/Vision/GestureRecognizerController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "25"
+                  endingLineNumber = "25"
+                  offsetFromSymbolStart = "484">
+               </Location>
+               <Location
+                  uuid = "25000C8E-C85F-4583-B6BD-53ACE6F6B432 - d4c195fbde37f2d3"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Year_Work.GestureRecognizerController.init(coder: __C.NSCoder) -&gt; Swift.Optional&lt;Year_Work.GestureRecognizerController&gt;"
+                  moduleName = "Year Work"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/bohdan/Documents/Year%20Work/Main%20Project/Year%20Work/Vision/GestureRecognizerController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "25"
+                  endingLineNumber = "25"
+                  offsetFromSymbolStart = "460">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

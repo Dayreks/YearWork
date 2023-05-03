@@ -37,10 +37,6 @@ struct RythmsView: View {
     
     var body: some View {
         VStack{
-            Text("\(points)")
-                .font(.largeTitle)
-                .padding(.top, 32)
-            
             Spacer()
             
             HStack{
@@ -95,7 +91,6 @@ struct RythmsView: View {
             .offset(y: playing ? 200 : -80.0)
             .disabled(playing)
         }
-        .navigationTitle("Ритми")
         .navigationBarBackButtonHidden(true)
         .onDisappear {
             playing = false
@@ -160,12 +155,14 @@ struct RythmsView: View {
                 }
             }
             else {
-                points = 0
                 listening = false
                 sequenceToInsert.removeAll()
                 sequenceToRemember.removeAll()
                 playing = false
                 touchable = false
+                
+                model.markCompleted(task: .rythms, score: points, transcribedPhrases: nil)
+                presentationMode.wrappedValue.dismiss()
             }
         }
     }

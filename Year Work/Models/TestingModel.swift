@@ -6,22 +6,21 @@ class TestingModel: Identifiable {
     
     var title: String
     
-    @Published var completedTasks: [CompletedTask] = []
-    var phrases: [Phrase]
-    var transcribedPhrases: [String] = []
-    var lengthInMinutes: Int
+    @Published var completedTasks: [CompletedTask] = PersistenceController.shared.fetchAllCompletedTasks()
+    
 
     var theme: Theme
     
-    init(title: String, phrases: [String], lengthInMinutes: Int, theme: Theme) {
+    init(title: String, theme: Theme) {
         self.title = title
-        self.phrases = phrases.map { Phrase(name: $0) }
-        self.lengthInMinutes = lengthInMinutes
         self.theme = theme
     }
     
-    func markCompleted(task: TestTask, score: Int) {
-        persistenceController.saveCompletedTask(task: task.rawValue, score: score)
+    func markCompleted(task: TestTask, score: Int, transcribedPhrases: [String]?) {
+        completedTasks = persistenceController.fetchAllCompletedTasks()
+        if !completedTasks.contains(where: { $0.task == task.rawValue }) {
+            persistenceController.saveCompletedTask(task: task.rawValue, score: score, transcribedPhrases: transcribedPhrases)
+        }
     }
     
     func fetchCompletedTasks() {
@@ -30,20 +29,8 @@ class TestingModel: Identifiable {
 }
 
 extension TestingModel {
-    struct Phrase: Identifiable {
-        let id: UUID
-        var text: String
-        
-        init(id: UUID = UUID(), name: String) {
-            self.id = id
-            self.text = name
-        }
-    }
-}
-
-extension TestingModel {
     static let sampleData: [TestingModel] =
     [
-        TestingModel(title: "TestingModelSample", phrases: ["а", "та", "ла", "жах", "страх", "вибух", "а", "та", "ла", "жах", "страх", "вибух"], lengthInMinutes: 1, theme: .navy),
+        TestingModel(title: "TestingModelSample", theme: .navy),
     ]
 }

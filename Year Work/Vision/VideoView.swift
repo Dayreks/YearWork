@@ -12,7 +12,7 @@ struct VideoView: View {
     @Binding var model: TestingModel
 
     var body: some View {
-        GestureRecognizerView()
+        GestureRecognizerView(model: $model)
             .ignoresSafeArea()
     }
 }

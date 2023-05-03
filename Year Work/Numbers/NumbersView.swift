@@ -74,10 +74,11 @@ struct NumbersView: View {
         .padding()
         .alert(isPresented: $showingAlert) {
             Alert(
-                title: Text("Тест завершено"),
-                message: Text("You made it to round \(round) with a score of \(correctCount)"),
-                dismissButton: .default(Text("Продовжити"), action: {
+                title: Text("Вітання"),
+                message: Text("Ви успішно завершили цю частину"),
+                dismissButton: .default(Text("Ок"), action: {
                     resetGame()
+                    model.markCompleted(task: .numbers, score: correctCount, transcribedPhrases: nil)
                     presentationMode.wrappedValue.dismiss()
                 })
             )

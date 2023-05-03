@@ -167,7 +167,7 @@ class RightOrLeftGestureRecognizerController: UIViewController {
         )
         
         let okAction = UIAlertAction(title: "OK", style: .default) {  [weak self]  _ in
-            self?.model.markCompleted(task: .orientation, score: self?.currentScore ?? 0)
+            self?.model.markCompleted(task: .orientation, score: self?.currentScore ?? 0, transcribedPhrases: nil)
             self?.navigationController?.popViewController(animated: true)
         }
         alertController.addAction(okAction)

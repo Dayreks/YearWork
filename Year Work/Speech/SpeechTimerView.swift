@@ -5,7 +5,7 @@ struct SpeechTimerView: View {
     let theme: Theme
     
     private var currentSpeaker: String {
-        speechPhrases.first(where: { !$0.isCompleted })?.text ?? "Completed"
+        speechPhrases.first(where: { !$0.isCompleted })?.text ?? "✓"
     }
     
     var body: some View {
