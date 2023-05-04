@@ -11,7 +11,7 @@ import SwiftUI
 struct Year_WorkApp: App {
     @State var model = TestingModel(
         title: "MainTestingModel",
-        theme: .lavender
+        theme: .navy
     )
     
     var body: some Scene {
