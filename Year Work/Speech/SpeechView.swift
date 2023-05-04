@@ -40,6 +40,7 @@ struct SpeechView: View {
             speechModel.phraseChangedAction = {
                 speechRecognizer.stopTranscribing()
                 speechResultsModel.storeTranscribedResult(speechRecognizer.transcript)
+                speechModel.startPhraseRead()
                 speechRecognizer.transcribeUntilWordRecognized()
             }
         }

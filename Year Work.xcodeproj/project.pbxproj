@@ -10,6 +10,11 @@
 		4716DC4A2A005CA700C7C560 /* TestingResultsDataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 4716DC482A005CA700C7C560 /* TestingResultsDataModel.xcdatamodeld */; };
 		4716DC502A0061B500C7C560 /* PersistenceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4716DC4F2A0061B500C7C560 /* PersistenceController.swift */; };
 		4719E8DA2A01A46000C1DD55 /* SpeechResultModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4719E8D92A01A46000C1DD55 /* SpeechResultModel.swift */; };
+		4719E8DC2A036D7400C1DD55 /* IntroductionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4719E8DB2A036D7400C1DD55 /* IntroductionView.swift */; };
+		4719E8DF2A037E4400C1DD55 /* BarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4719E8DE2A037E4400C1DD55 /* BarView.swift */; };
+		4719E8E12A037E5A00C1DD55 /* ResultsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4719E8E02A037E5A00C1DD55 /* ResultsView.swift */; };
+		4719E8E32A03843200C1DD55 /* GridBackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4719E8E22A03843200C1DD55 /* GridBackgroundView.swift */; };
+		4719E8E52A039AEA00C1DD55 /* ResultsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4719E8E42A039AEA00C1DD55 /* ResultsViewModel.swift */; };
 		4721FF5E29BF15D500CA3771 /* MenuButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4721FF5D29BF15D500CA3771 /* MenuButtonView.swift */; };
 		4721FF6029C0C75E00CA3771 /* SpeechRecognizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4721FF5F29C0C75E00CA3771 /* SpeechRecognizer.swift */; };
 		4721FF6229C0C89D00CA3771 /* SpeechView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4721FF6129C0C89D00CA3771 /* SpeechView.swift */; };
@@ -50,6 +55,11 @@
 		4716DC492A005CA700C7C560 /* TestingResultsDataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = TestingResultsDataModel.xcdatamodel; sourceTree = "<group>"; };
 		4716DC4F2A0061B500C7C560 /* PersistenceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceController.swift; sourceTree = "<group>"; };
 		4719E8D92A01A46000C1DD55 /* SpeechResultModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeechResultModel.swift; sourceTree = "<group>"; };
+		4719E8DB2A036D7400C1DD55 /* IntroductionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntroductionView.swift; sourceTree = "<group>"; };
+		4719E8DE2A037E4400C1DD55 /* BarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarView.swift; sourceTree = "<group>"; };
+		4719E8E02A037E5A00C1DD55 /* ResultsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultsView.swift; sourceTree = "<group>"; };
+		4719E8E22A03843200C1DD55 /* GridBackgroundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GridBackgroundView.swift; sourceTree = "<group>"; };
+		4719E8E42A039AEA00C1DD55 /* ResultsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultsViewModel.swift; sourceTree = "<group>"; };
 		4721FF5D29BF15D500CA3771 /* MenuButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuButtonView.swift; sourceTree = "<group>"; };
 		4721FF5F29C0C75E00CA3771 /* SpeechRecognizer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpeechRecognizer.swift; sourceTree = "<group>"; };
 		4721FF6129C0C89D00CA3771 /* SpeechView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpeechView.swift; sourceTree = "<group>"; };
@@ -108,11 +118,22 @@
 			path = DB;
 			sourceTree = "<group>";
 		};
+		4719E8DD2A037E1B00C1DD55 /* Results */ = {
+			isa = PBXGroup;
+			children = (
+				4719E8E42A039AEA00C1DD55 /* ResultsViewModel.swift */,
+				4719E8E02A037E5A00C1DD55 /* ResultsView.swift */,
+				4719E8DE2A037E4400C1DD55 /* BarView.swift */,
+				4719E8E22A03843200C1DD55 /* GridBackgroundView.swift */,
+			);
+			path = Results;
+			sourceTree = "<group>";
+		};
 		4785A58A296F229900D13339 /* UIMenu */ = {
 			isa = PBXGroup;
 			children = (
 				4785A58D296F22D400D13339 /* StartView.swift */,
-				4721FF5D29BF15D500CA3771 /* MenuButtonView.swift */,
+				4719E8DB2A036D7400C1DD55 /* IntroductionView.swift */,
 			);
 			path = UIMenu;
 			sourceTree = "<group>";
@@ -123,6 +144,8 @@
 				4721FF7429C0C94F00CA3771 /* CustomProgressViewStyle.swift */,
 				47A8E56A29BF0C2B00720E92 /* TileView.swift */,
 				4726942C29FB0BDC00137521 /* ExplanationView.swift */,
+				4721FF5D29BF15D500CA3771 /* MenuButtonView.swift */,
+				4721FF7029C0C92000CA3771 /* Theme.swift */,
 			);
 			path = SwiftUIHelpers;
 			sourceTree = "<group>";
@@ -132,7 +155,6 @@
 			children = (
 				4721FF6C29C0C90000CA3771 /* TestingModel.swift */,
 				47A8E56D29BF0D8300720E92 /* Task.swift */,
-				4721FF7029C0C92000CA3771 /* Theme.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -176,6 +198,7 @@
 				47DD24242986BFC1007A9705 /* Vision */,
 				47DD24232986BFB6007A9705 /* Rythms */,
 				4785A58A296F229900D13339 /* UIMenu */,
+				4719E8DD2A037E1B00C1DD55 /* Results */,
 				47DD24282986BFF6007A9705 /* Extrensions */,
 				47F7299A29C74D7500D46514 /* AudioFiles */,
 				47B303C3296617A5008CCFAF /* Year_WorkApp.swift */,
@@ -341,7 +364,9 @@
 				4721FF5E29BF15D500CA3771 /* MenuButtonView.swift in Sources */,
 				4721FF6829C0C8C200CA3771 /* SpeechHeaderView.swift in Sources */,
 				47A0392B29C39C9F0096953F /* HandGuessingGameView.swift in Sources */,
+				4719E8E52A039AEA00C1DD55 /* ResultsViewModel.swift in Sources */,
 				47F729A929C76E6F00D46514 /* NumbersView.swift in Sources */,
+				4719E8E32A03843200C1DD55 /* GridBackgroundView.swift in Sources */,
 				47A0393129C3A9250096953F /* HandSideProccessor.swift in Sources */,
 				4721FF6729C0C8C200CA3771 /* SpeechTimerView.swift in Sources */,
 				4721FF7729C0C94F00CA3771 /* SpeakerArc.swift in Sources */,
@@ -350,8 +375,11 @@
 				47F7299929C74D4500D46514 /* AVPlayer+ClickSound.swift in Sources */,
 				47A8E56E29BF0D8300720E92 /* Task.swift in Sources */,
 				4785A58E296F22D400D13339 /* StartView.swift in Sources */,
+				4719E8DF2A037E4400C1DD55 /* BarView.swift in Sources */,
 				4721FF7629C0C94F00CA3771 /* CustomProgressViewStyle.swift in Sources */,
 				4721FF6029C0C75E00CA3771 /* SpeechRecognizer.swift in Sources */,
+				4719E8E12A037E5A00C1DD55 /* ResultsView.swift in Sources */,
+				4719E8DC2A036D7400C1DD55 /* IntroductionView.swift in Sources */,
 				47DD242E2986D4DB007A9705 /* GestureRecognizerViewRepresentable.swift in Sources */,
 				47A8E56B29BF0C2B00720E92 /* RythmsView.swift in Sources */,
 				47B303C6296617A5008CCFAF /* VideoView.swift in Sources */,

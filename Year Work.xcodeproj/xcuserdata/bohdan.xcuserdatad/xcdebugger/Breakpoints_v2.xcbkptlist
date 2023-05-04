@@ -158,8 +158,8 @@
             filePath = "Year Work/UIMenu/StartView.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "152"
-            endingLineNumber = "152"
+            startingLineNumber = "186"
+            endingLineNumber = "186"
             landmarkName = "body"
             landmarkType = "24">
          </BreakpointContent>
@@ -183,54 +183,6 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "CB17955D-5A3C-436F-85AC-0E615FDC2526"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Year Work/Vision/GestureRecognizerController.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "248"
-            endingLineNumber = "248"
-            landmarkName = "processPoints(thumbTipPoint:indexTipPoint:middleTipPoint:ringTipPoint:littleTipPoint:wristPoint:)"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "CB17955D-5A3C-436F-85AC-0E615FDC2526 - 3c7836d4398a7fee"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Year_Work.GestureRecognizerController.processPoints(thumbTipPoint: __C.VNRecognizedPoint, indexTipPoint: __C.VNRecognizedPoint, middleTipPoint: __C.VNRecognizedPoint, ringTipPoint: __C.VNRecognizedPoint, littleTipPoint: __C.VNRecognizedPoint, wristPoint: __C.VNRecognizedPoint) -&gt; ()"
-                  moduleName = "Year Work"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/bohdan/Documents/Year%20Work/Main%20Project/Year%20Work/Vision/GestureRecognizerController.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "257"
-                  endingLineNumber = "257"
-                  offsetFromSymbolStart = "3084">
-               </Location>
-               <Location
-                  uuid = "CB17955D-5A3C-436F-85AC-0E615FDC2526 - 509355357cf82106"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 @Swift.MainActor () -&gt; () in Year_Work.GestureRecognizerController.processPoints(thumbTipPoint: __C.VNRecognizedPoint, indexTipPoint: __C.VNRecognizedPoint, middleTipPoint: __C.VNRecognizedPoint, ringTipPoint: __C.VNRecognizedPoint, littleTipPoint: __C.VNRecognizedPoint, wristPoint: __C.VNRecognizedPoint) -&gt; ()"
-                  moduleName = "Year Work"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/bohdan/Documents/Year%20Work/Main%20Project/Year%20Work/Vision/GestureRecognizerController.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "258"
-                  endingLineNumber = "258"
-                  offsetFromSymbolStart = "32">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
             uuid = "F31B190D-86EF-4A42-88E4-C9CD7BF9A749"
             shouldBeEnabled = "No"
             ignoreCount = "0"
@@ -238,8 +190,8 @@
             filePath = "Year Work/Vision/GestureRecognizerController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "246"
-            endingLineNumber = "246"
+            startingLineNumber = "240"
+            endingLineNumber = "240"
             landmarkName = "processPoints(thumbTipPoint:indexTipPoint:middleTipPoint:ringTipPoint:littleTipPoint:wristPoint:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -254,8 +206,8 @@
             filePath = "Year Work/Vision/GestureRecognizerController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "209"
-            endingLineNumber = "209"
+            startingLineNumber = "203"
+            endingLineNumber = "203"
             landmarkName = "processPoints(thumbTipPoint:indexTipPoint:middleTipPoint:ringTipPoint:littleTipPoint:wristPoint:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -270,8 +222,8 @@
             filePath = "Year Work/Vision/GestureRecognizerController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "26"
-            endingLineNumber = "26"
+            startingLineNumber = "25"
+            endingLineNumber = "25"
             landmarkName = "GestureRecognizerController"
             landmarkType = "3">
             <Locations>
@@ -364,6 +316,309 @@
                   startingLineNumber = "25"
                   endingLineNumber = "25"
                   offsetFromSymbolStart = "460">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "5AE35B20-DBC3-447E-9C41-2CCE6BD29A64"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Year Work/Speech/Models/SpeechRecognizer.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "106"
+            endingLineNumber = "106"
+            landmarkName = "transcribeUntilWordRecognized()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "5AE35B20-DBC3-447E-9C41-2CCE6BD29A64 - c741e44c891801b2"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 () -&gt; () in Year_Work.SpeechRecognizer.transcribeUntilWordRecognized() -&gt; ()"
+                  moduleName = "Year Work"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/bohdan/Documents/Year%20Work/Main%20Project/Year%20Work/Speech/Models/SpeechRecognizer.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "106"
+                  endingLineNumber = "106"
+                  offsetFromSymbolStart = "496">
+               </Location>
+               <Location
+                  uuid = "5AE35B20-DBC3-447E-9C41-2CCE6BD29A64 - 7db7911afcb783b2"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (()) -&gt; () in closure #1 () -&gt; () in Year_Work.SpeechRecognizer.transcribeUntilWordRecognized() -&gt; ()"
+                  moduleName = "Year Work"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/bohdan/Documents/Year%20Work/Main%20Project/Year%20Work/Speech/Models/SpeechRecognizer.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "106"
+                  endingLineNumber = "106"
+                  offsetFromSymbolStart = "20">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "2ED26D5C-87BE-4CED-B075-89F27A5931A6"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Year Work/Speech/Models/SpeechRecognizer.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "109"
+            endingLineNumber = "109"
+            landmarkName = "transcribeUntilWordRecognized()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "A04FA76A-58EB-4F8C-A1D4-F64BCD5C1C52"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Year Work/Speech/Models/SpeechRecognizer.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "107"
+            endingLineNumber = "107"
+            landmarkName = "transcribeUntilWordRecognized()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "05F33E9A-E14B-45E4-8D69-62BFBED23B46"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Year Work/Speech/Models/SpeechRecognizer.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "164"
+            endingLineNumber = "164"
+            landmarkName = "recognitionHandler(result:error:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "377D9267-0106-41A7-912B-9BEFF7325A37"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Year Work/UIMenu/StartView.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "173"
+            endingLineNumber = "173"
+            landmarkName = "body"
+            landmarkType = "24">
+            <Locations>
+               <Location
+                  uuid = "377D9267-0106-41A7-912B-9BEFF7325A37 - b9569a629b7b7f06"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Year_Work.CompletedTask) -&gt; () in closure #2 () -&gt; () in closure #1 () -&gt; Swift.Optional&lt;&lt;&lt;opaque return type of SwiftUI.View.onTapGesture(count: Swift.Int, perform: () -&gt; ()) -&gt; some&gt;&gt;.0&gt; in closure #2 () -&gt; SwiftUI.TupleView&lt;(SwiftUI.Spacer, &lt;&lt;opaque return type of SwiftUI.View.padding(SwiftUI.Edge.Set, Swift.Optional&lt;CoreGraphics.CGFloat&gt;) -&gt; some&gt;&gt;.0)&gt; in closure #1 () -&gt; SwiftUI.TupleView&lt;(&lt;&lt;opaque return type of SwiftUI.View.padding(SwiftUI.Edge.Set, Swift.Optional&lt;CoreGraphics.CGFloat&gt;) -&gt; some&gt;&gt;.0, &lt;&lt;opaque return type of SwiftUI.View.padding(SwiftUI.Edge.Set, Swift.Optional&lt;CoreGraphics.CGFloat&gt;) -&gt; some&gt;&gt;.0, SwiftUI.LazyVGrid&lt;SwiftUI.TupleView&lt;(SwiftUI.ForEach&lt;Swift.Array&lt;Year_Work.TestTask&gt;, Year_Work.TestTask, SwiftUI._ConditionalContent&lt;SwiftUI._ConditionalContent&lt;SwiftUI._ConditionalContent&lt;SwiftUI.NavigationLink&lt;Year_Work.MenuButtonView, Year_Work.ExplanationView&lt;Year_Work.VideoView&gt;&gt;, SwiftUI.NavigationLink&lt;Year_Work.MenuButtonView, Year_Work.ExplanationView&lt;Year_Work.RythmsView&gt;&gt;&gt;, SwiftUI._ConditionalContent&lt;SwiftUI.NavigationLink&lt;Year_Work.MenuButtonView, Year_Work.ExplanationView&lt;Year_Work.SpeechView&gt;&gt;, SwiftUI.NavigationLink&lt;Year_Work.MenuButtonView, Year_Work.ExplanationView&lt;Year_Work.NumbersView&gt;&gt;&gt;&gt;, SwiftUI.NavigationLink&lt;Year_Work.MenuButtonView, Year_Work.ExplanationView&lt;Year_Work.HandGuessingGameView&gt;&gt;&gt;&gt;, &lt;&lt;opaque return type of SwiftUI.View.alert(isPresented: SwiftUI.Binding&lt;Swift.Bool&gt;, content: () -&gt; SwiftUI.Alert) -&gt; some&gt;&gt;.0)&gt;&gt;, SwiftUI.Spacer, SwiftUI.VStack&lt;SwiftUI.TupleView&lt;(SwiftUI.Spacer, &lt;&lt;opaque return type of SwiftUI.View.padding(SwiftUI.Edge.Set, Swift.Optional&lt;CoreGraphics.CGFloat&gt;) -&gt; some&gt;&gt;.0)&gt;&gt;)&gt; in closure #1 () -&gt; SwiftUI.TupleView&lt;(&lt;&lt;opaque return type of SwiftUI.View.ignoresSafeArea(_: SwiftUI.SafeAreaRegions, edges: SwiftUI.Edge.Set) -&gt; some&gt;&gt;.0, SwiftUI.VStack&lt;SwiftUI.TupleView&lt;(&lt;&lt;opaque return type of SwiftUI.View.padding(SwiftUI.Edge.Set, Swift.Optional&lt;CoreGraphics.CGFloat&gt;) -&gt; some&gt;&gt;.0, &lt;&lt;opaque return type of SwiftUI.View.padding(SwiftUI.Edge.Set, Swift.Optional&lt;CoreGraphics.CGFloat&gt;) -&gt; some&gt;&gt;.0, SwiftUI.LazyVGrid&lt;SwiftUI.TupleView&lt;(SwiftUI.ForEach&lt;Swift.Array&lt;Year_Work.TestTask&gt;, Year_Work.TestTask, SwiftUI._ConditionalContent&lt;SwiftUI._ConditionalContent&lt;SwiftUI._ConditionalContent&lt;SwiftUI.NavigationLink&lt;Year_Work.MenuButtonView, Year_Work.ExplanationView&lt;Year_Work.VideoView&gt;&gt;, SwiftUI.NavigationLink&lt;Year_Work.MenuButtonView, Year_Work.ExplanationView&lt;Year_Work.RythmsView&gt;&gt;&gt;, SwiftUI._ConditionalContent&lt;SwiftUI.NavigationLink&lt;Year_Work.MenuButtonView, Year_Work.ExplanationView&lt;Year_Work.SpeechView&gt;&gt;, SwiftUI.NavigationLink&lt;Year_Work.MenuButtonView, Year_Work.ExplanationView&lt;Year_Work.NumbersView&gt;&gt;&gt;&gt;, SwiftUI.NavigationLink&lt;Year_Work.MenuButtonView, Year_Work.ExplanationView&lt;Year_Work.HandGuessingGameView&gt;&gt;&gt;&gt;, &lt;&lt;opaque return type of SwiftUI.View.alert(isPresented: SwiftUI.Binding&lt;Swift.Bool&gt;, content: () -&gt; SwiftUI.Alert) -&gt; some&gt;&gt;.0)&gt;&gt;, SwiftUI.Spacer, SwiftUI.VStack&lt;SwiftUI.TupleView&lt;(SwiftUI.Spacer, &lt;&lt;opaque return type of SwiftUI.View.padding(SwiftUI.Edge.Set, Swift.Optional&lt;CoreGraphics.CGFloat&gt;) -&gt; some&gt;&gt;.0)&gt;&gt;)&gt;&gt;)&gt; in closure #1 () -&gt; &lt;&lt;opaque return type of SwiftUI.View.onAppear(perform: Swift.Optional&lt;() -&gt; ()&gt;) -&gt; some&gt;&gt;.0 in Year_Work.StartView.body.getter : some"
+                  moduleName = "Year Work"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/bohdan/Documents/Year%20Work/Main%20Project/Year%20Work/UIMenu/StartView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "156"
+                  endingLineNumber = "156"
+                  offsetFromSymbolStart = "792">
+               </Location>
+               <Location
+                  uuid = "377D9267-0106-41A7-912B-9BEFF7325A37 - b9569a629b7b7f06"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Year_Work.CompletedTask) -&gt; () in closure #2 () -&gt; () in closure #1 () -&gt; Swift.Optional&lt;&lt;&lt;opaque return type of SwiftUI.View.onTapGesture(count: Swift.Int, perform: () -&gt; ()) -&gt; some&gt;&gt;.0&gt; in closure #2 () -&gt; SwiftUI.TupleView&lt;(SwiftUI.Spacer, &lt;&lt;opaque return type of SwiftUI.View.padding(SwiftUI.Edge.Set, Swift.Optional&lt;CoreGraphics.CGFloat&gt;) -&gt; some&gt;&gt;.0)&gt; in closure #1 () -&gt; SwiftUI.TupleView&lt;(&lt;&lt;opaque return type of SwiftUI.View.padding(SwiftUI.Edge.Set, Swift.Optional&lt;CoreGraphics.CGFloat&gt;) -&gt; some&gt;&gt;.0, &lt;&lt;opaque return type of SwiftUI.View.padding(SwiftUI.Edge.Set, Swift.Optional&lt;CoreGraphics.CGFloat&gt;) -&gt; some&gt;&gt;.0, SwiftUI.LazyVGrid&lt;SwiftUI.TupleView&lt;(SwiftUI.ForEach&lt;Swift.Array&lt;Year_Work.TestTask&gt;, Year_Work.TestTask, SwiftUI._ConditionalContent&lt;SwiftUI._ConditionalContent&lt;SwiftUI._ConditionalContent&lt;SwiftUI.NavigationLink&lt;Year_Work.MenuButtonView, Year_Work.ExplanationView&lt;Year_Work.VideoView&gt;&gt;, SwiftUI.NavigationLink&lt;Year_Work.MenuButtonView, Year_Work.ExplanationView&lt;Year_Work.RythmsView&gt;&gt;&gt;, SwiftUI._ConditionalContent&lt;SwiftUI.NavigationLink&lt;Year_Work.MenuButtonView, Year_Work.ExplanationView&lt;Year_Work.SpeechView&gt;&gt;, SwiftUI.NavigationLink&lt;Year_Work.MenuButtonView, Year_Work.ExplanationView&lt;Year_Work.NumbersView&gt;&gt;&gt;&gt;, SwiftUI.NavigationLink&lt;Year_Work.MenuButtonView, Year_Work.ExplanationView&lt;Year_Work.HandGuessingGameView&gt;&gt;&gt;&gt;, &lt;&lt;opaque return type of SwiftUI.View.alert(isPresented: SwiftUI.Binding&lt;Swift.Bool&gt;, content: () -&gt; SwiftUI.Alert) -&gt; some&gt;&gt;.0)&gt;&gt;, SwiftUI.Spacer, SwiftUI.VStack&lt;SwiftUI.TupleView&lt;(SwiftUI.Spacer, &lt;&lt;opaque return type of SwiftUI.View.padding(SwiftUI.Edge.Set, Swift.Optional&lt;CoreGraphics.CGFloat&gt;) -&gt; some&gt;&gt;.0)&gt;&gt;)&gt; in closure #1 () -&gt; SwiftUI.TupleView&lt;(&lt;&lt;opaque return type of SwiftUI.View.ignoresSafeArea(_: SwiftUI.SafeAreaRegions, edges: SwiftUI.Edge.Set) -&gt; some&gt;&gt;.0, SwiftUI.VStack&lt;SwiftUI.TupleView&lt;(&lt;&lt;opaque return type of SwiftUI.View.padding(SwiftUI.Edge.Set, Swift.Optional&lt;CoreGraphics.CGFloat&gt;) -&gt; some&gt;&gt;.0, &lt;&lt;opaque return type of SwiftUI.View.padding(SwiftUI.Edge.Set, Swift.Optional&lt;CoreGraphics.CGFloat&gt;) -&gt; some&gt;&gt;.0, SwiftUI.LazyVGrid&lt;SwiftUI.TupleView&lt;(SwiftUI.ForEach&lt;Swift.Array&lt;Year_Work.TestTask&gt;, Year_Work.TestTask, SwiftUI._ConditionalContent&lt;SwiftUI._ConditionalContent&lt;SwiftUI._ConditionalContent&lt;SwiftUI.NavigationLink&lt;Year_Work.MenuButtonView, Year_Work.ExplanationView&lt;Year_Work.VideoView&gt;&gt;, SwiftUI.NavigationLink&lt;Year_Work.MenuButtonView, Year_Work.ExplanationView&lt;Year_Work.RythmsView&gt;&gt;&gt;, SwiftUI._ConditionalContent&lt;SwiftUI.NavigationLink&lt;Year_Work.MenuButtonView, Year_Work.ExplanationView&lt;Year_Work.SpeechView&gt;&gt;, SwiftUI.NavigationLink&lt;Year_Work.MenuButtonView, Year_Work.ExplanationView&lt;Year_Work.NumbersView&gt;&gt;&gt;&gt;, SwiftUI.NavigationLink&lt;Year_Work.MenuButtonView, Year_Work.ExplanationView&lt;Year_Work.HandGuessingGameView&gt;&gt;&gt;&gt;, &lt;&lt;opaque return type of SwiftUI.View.alert(isPresented: SwiftUI.Binding&lt;Swift.Bool&gt;, content: () -&gt; SwiftUI.Alert) -&gt; some&gt;&gt;.0)&gt;&gt;, SwiftUI.Spacer, SwiftUI.VStack&lt;SwiftUI.TupleView&lt;(SwiftUI.Spacer, &lt;&lt;opaque return type of SwiftUI.View.padding(SwiftUI.Edge.Set, Swift.Optional&lt;CoreGraphics.CGFloat&gt;) -&gt; some&gt;&gt;.0)&gt;&gt;)&gt;&gt;)&gt; in closure #1 () -&gt; &lt;&lt;opaque return type of SwiftUI.View.onAppear(perform: Swift.Optional&lt;() -&gt; ()&gt;) -&gt; some&gt;&gt;.0 in Year_Work.StartView.body.getter : some"
+                  moduleName = "Year Work"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/bohdan/Documents/Year%20Work/Main%20Project/Year%20Work/UIMenu/StartView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "156"
+                  endingLineNumber = "156"
+                  offsetFromSymbolStart = "56">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "F506F4D9-9886-49C0-A2B7-D677A1EA9145"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Year Work/UIMenu/StartView.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "185"
+            endingLineNumber = "185"
+            landmarkName = "body"
+            landmarkType = "24">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "DAB5969F-48CA-4AED-AB26-2DC8ED0D50BC"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Year Work/UIMenu/StartView.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "184"
+            endingLineNumber = "184"
+            landmarkName = "body"
+            landmarkType = "24">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "A0B56E9E-E86C-4D71-9A25-4CF6F7EC0CA1"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Year Work/Results/ResultsViewModel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "48"
+            endingLineNumber = "48"
+            landmarkName = "totalScore()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "CCDE1882-9663-47D3-8ED2-143DD20DB893"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Year Work/Numbers/NumbersView.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "80"
+            endingLineNumber = "80"
+            landmarkName = "body"
+            landmarkType = "24">
+            <Locations>
+               <Location
+                  uuid = "CCDE1882-9663-47D3-8ED2-143DD20DB893 - 19708b8c5e4cf795"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 () -&gt; () in closure #2 () -&gt; SwiftUI.Alert in Year_Work.NumbersView.body.getter : some"
+                  moduleName = "Year Work"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/bohdan/Documents/Year%20Work/Main%20Project/Year%20Work/Numbers/NumbersView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "81"
+                  endingLineNumber = "81"
+                  offsetFromSymbolStart = "404">
+               </Location>
+               <Location
+                  uuid = "CCDE1882-9663-47D3-8ED2-143DD20DB893 - 19708b8c5e4cf7b4"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 () -&gt; () in closure #2 () -&gt; SwiftUI.Alert in Year_Work.NumbersView.body.getter : some"
+                  moduleName = "Year Work"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/bohdan/Documents/Year%20Work/Main%20Project/Year%20Work/Numbers/NumbersView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "80"
+                  endingLineNumber = "80"
+                  offsetFromSymbolStart = "396">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "62269AB2-C12C-4FC8-BC1B-E9E1121712D7"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Year Work/Results/ResultsViewModel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "60"
+            endingLineNumber = "60"
+            landmarkName = "barTaskScore(task:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "62269AB2-C12C-4FC8-BC1B-E9E1121712D7 - 123e67e07f3af485"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Year_Work.ResultsViewModel.barTaskScore(task: Year_Work.TestTask) -&gt; Swift.Double"
+                  moduleName = "Year Work"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/bohdan/Documents/Year%20Work/Main%20Project/Year%20Work/Results/ResultsViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "60"
+                  endingLineNumber = "60"
+                  offsetFromSymbolStart = "92">
+               </Location>
+               <Location
+                  uuid = "62269AB2-C12C-4FC8-BC1B-E9E1121712D7 - d2df5cd0b34cbc8"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Year_Work.CompletedTask) -&gt; Swift.Bool in Year_Work.ResultsViewModel.barTaskScore(task: Year_Work.TestTask) -&gt; Swift.Double"
+                  moduleName = "Year Work"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/bohdan/Documents/Year%20Work/Main%20Project/Year%20Work/Results/ResultsViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "60"
+                  endingLineNumber = "60"
+                  offsetFromSymbolStart = "44">
+               </Location>
+               <Location
+                  uuid = "62269AB2-C12C-4FC8-BC1B-E9E1121712D7 - 123e67e07f3af485"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Year_Work.ResultsViewModel.barTaskScore(task: Year_Work.TestTask) -&gt; Swift.Double"
+                  moduleName = "Year Work"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/bohdan/Documents/Year%20Work/Main%20Project/Year%20Work/Results/ResultsViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "60"
+                  endingLineNumber = "60"
+                  offsetFromSymbolStart = "88">
                </Location>
             </Locations>
          </BreakpointContent>

@@ -30,6 +30,8 @@ struct RythmsView: View {
     
     @State var playing = false
     
+    @State var roundCount = 0
+    
     private var player1: AVPlayer { AVPlayer.click1Player }
     private var player2: AVPlayer { AVPlayer.click2Player }
     private var player3: AVPlayer { AVPlayer.click3Player }
@@ -102,16 +104,21 @@ struct RythmsView: View {
     typealias StepComplete = () -> Void
     
     func startRound() -> Void {
-        playing = true
-        
-        sequenceToRemember.append(Int.random(in: 1...4))
-        
-        DispatchQueue.main.asyncAfter(deadline: .now() + 1.5){
-            playSequence(sequence: sequenceToRemember) { () -> () in
-                sequenceToInsert.removeAll()
-                listening = true
-                
+        roundCount += 1
+        if roundCount <= 10 {
+            playing = true
+            
+            sequenceToRemember.append(Int.random(in: 1...4))
+            
+            DispatchQueue.main.asyncAfter(deadline: .now() + 1.5){
+                playSequence(sequence: sequenceToRemember) { () -> () in
+                    sequenceToInsert.removeAll()
+                    listening = true
+                    
+                }
             }
+        } else {
+            endGame()
         }
     }
     
@@ -143,7 +150,7 @@ struct RythmsView: View {
     }
     
     func checkNextRound() {
-        if(listening){
+        if(listening) {
             let lastInsertedIndex : Int = sequenceToInsert.count - 1
             
             if(sequenceToInsert[lastInsertedIndex] == sequenceToRemember[lastInsertedIndex]){
@@ -161,9 +168,15 @@ struct RythmsView: View {
                 playing = false
                 touchable = false
                 
-                model.markCompleted(task: .rythms, score: points, transcribedPhrases: nil)
-                presentationMode.wrappedValue.dismiss()
+                endGame()
             }
+        }
+    }
+    
+    func endGame() {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
+            model.markCompleted(task: .rythms, score: points, transcribedPhrases: nil)
+            presentationMode.wrappedValue.dismiss()
         }
     }
     

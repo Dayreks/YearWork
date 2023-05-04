@@ -77,12 +77,13 @@ struct NumbersView: View {
                 title: Text("Вітання"),
                 message: Text("Ви успішно завершили цю частину"),
                 dismissButton: .default(Text("Ок"), action: {
-                    resetGame()
                     model.markCompleted(task: .numbers, score: correctCount, transcribedPhrases: nil)
+                    resetGame()
                     presentationMode.wrappedValue.dismiss()
                 })
             )
         }
+        .navigationBarBackButtonHidden(true)
     }
     
     func startRound() -> Void {
@@ -108,17 +109,14 @@ struct NumbersView: View {
                 
                 if round < maxRounds {
                     round += 1
-                    startRound()
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
+                        startRound()
+                    }
                 } else {
                     showingAlert = true
                 }
             } else {
-                round += 1
-                if round <= maxRounds {
-                    startRound()
-                } else {
-                    showingAlert = true
-                }
+                showingAlert = true
             }
         }
     }

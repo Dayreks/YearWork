@@ -105,6 +105,7 @@ class SpeechRecognizer: ObservableObject {
                 
                 self.wordSubscription = self.wordRecognized.sink { [weak self] _ in
                     self?.stopTranscribing()
+                    
                 }
                 
                 self.task = recognizer.recognitionTask(with: request, resultHandler: self.recognitionHandler(result:error:))

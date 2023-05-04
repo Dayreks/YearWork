@@ -18,7 +18,11 @@ struct ExplanationView<Content: View>: View {
     @Binding var model: TestingModel
     @State private var showAlert = false
     
-    init(model: Binding<TestingModel>, task: TestTask, explanationText: String, theme: Theme, @ViewBuilder destination: () -> Content) {
+    init(
+        model: Binding<TestingModel>,
+        task: TestTask, explanationText: String,
+        theme: Theme,
+        @ViewBuilder destination: () -> Content) {
         self.explanationText = explanationText
         self.destination = destination()
         self.theme = theme
@@ -47,13 +51,14 @@ struct ExplanationView<Content: View>: View {
             .padding(.bottom, 20)
             .alert(isPresented: $showAlert) {
                 Alert(
-                    title: Text("Ви вже завершили цю секцію"),
+                    title: Text("Ви успішно завершили цю секцію"),
                     dismissButton: .default(Text("Ок")) {
                         presentationMode.wrappedValue.dismiss()
                     }
                 )
             }
             .onAppear() {
+                model.fetchCompletedTasks()
                 if model.completedTasks.contains(where: { $0.task == task.rawValue}) {
                     showAlert = true
                 }

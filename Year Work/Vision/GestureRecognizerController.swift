@@ -21,7 +21,6 @@ class GestureRecognizerController: UIViewController {
     private let handGestureProcessor = HandGestureProcessor()
     
     private weak var proposedGestureLabel: UILabel?
-    private weak var instructionsView: UIView?
     
     private var proposedGesture: HandGestureProcessor.HandGesture = .empty
     private var totalRounds: Int = 10
@@ -46,7 +45,6 @@ class GestureRecognizerController: UIViewController {
         prepareCaptureSession()
         prepareCaptureUI()
         prepareProposedGestureLabel()
-        prepareInstructionsView()
         proposeRandomGesture()
         
         // The default value for this property is 2.
@@ -127,6 +125,9 @@ class GestureRecognizerController: UIViewController {
         } else {
             startCountdownTimer()
             proposeRandomGesture()
+            DispatchQueue.main.asyncAfter(deadline: .now() + 1.6) {
+                self.isResultsOfRoundShown = false
+            }
         }
     }
     
@@ -147,13 +148,6 @@ class GestureRecognizerController: UIViewController {
         alertController.addAction(okAction)
         
         present(alertController, animated: true, completion: nil)
-    }
-    
-    private func prepareInstructionsView() {
-        let instructionsView = UIView()
-        // Customize your instructions view here
-        self.instructionsView = instructionsView
-        view.addSubview(instructionsView)
     }
 }
 
@@ -245,15 +239,12 @@ extension GestureRecognizerController: AVCaptureVideoDataOutputSampleBufferDeleg
         
         if state == proposedGesture {
             currentScore += 1
-            DispatchQueue.main.asyncAfter(deadline: .now() + 1.6) {
-                self.nextRound()
-                self.isResultsOfRoundShown = false
-            }
-        } else {
-            DispatchQueue.main.asyncAfter(deadline: .now() + 1.6) {
-                self.nextRound()
-                self.isResultsOfRoundShown = false
-            }
         }
+        
+        proposedGestureLabel?.text = ""
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1.6) {
+            self.nextRound()
+        }
+        
     }
 }

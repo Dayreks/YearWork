@@ -11,12 +11,12 @@ import SwiftUI
 struct Year_WorkApp: App {
     @State var model = TestingModel(
         title: "MainTestingModel",
-        theme: .navy
+        theme: .lavender
     )
     
     var body: some Scene {
         WindowGroup {
-            StartView(model: $model)
+            IntroductionView(model: $model, isButtonShown: true)
                 .preferredColorScheme(.light)
         }
     }

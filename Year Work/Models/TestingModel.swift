@@ -8,7 +8,6 @@ class TestingModel: Identifiable {
     
     @Published var completedTasks: [CompletedTask] = PersistenceController.shared.fetchAllCompletedTasks()
     
-
     var theme: Theme
     
     init(title: String, theme: Theme) {
@@ -26,11 +25,15 @@ class TestingModel: Identifiable {
     func fetchCompletedTasks() {
         completedTasks = persistenceController.fetchAllCompletedTasks()
     }
+    
+    func resetCompletedTasks() {
+        persistenceController.deleteAllCompletedTasks()
+    }
 }
 
 extension TestingModel {
     static let sampleData: [TestingModel] =
     [
-        TestingModel(title: "TestingModelSample", theme: .navy),
+        TestingModel(title: "TestingModelSample", theme: .navy)
     ]
 }

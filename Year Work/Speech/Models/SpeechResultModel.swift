@@ -15,20 +15,30 @@ class SpeechResultsModel: ObservableObject {
     
     func storeTranscribedResult(_ result: String) {
         transcribedResults.append(result)
-        updateCorrectScore()
-    }
-    
-    private func updateCorrectScore() {
-        correctScore = transcribedResults.count 
+        if phrases.contains(where: { $0 == result }) {
+            correctScore += 1
+        }
     }
 }
 
 extension SpeechResultsModel {
-    static var lengthInMinutes: Int { 1 }
+    static var lengthInMinutes: Int { 3 }
     
     static var speechPhrases: [SpeechPhrase] {
-        ["а", "та", "ла", "жах", "страх", "вибух", "а", "та", "ла", "жах", "страх", "вибух"]
+        [
+            "а", "м", "п", "к", "т", "г", "б", "ф", "х", "в", "н",
+            "пре", "від", "зі", "на", "ко", "пі", "мо", "лу", "ре", "фо",
+            "ліс", "трава", "машина", "вікно", "птах", "стіл", "книга", "квітка", "гора", "ручка",
+        ]
             .map { SpeechPhrase(text: $0, isCompleted: false)}
+    }
+    
+    var phrases: [String] {
+        [
+            "а", "м", "п", "к", "т", "г", "б", "ф", "х", "в", "н",
+            "пре", "від", "зі", "на", "ко", "пі", "мо", "лу", "ре", "фо",
+            "ліс", "трава", "машина", "вікно", "птах", "стіл", "книга", "квітка", "гора", "ручка",
+        ]
     }
 }
 
